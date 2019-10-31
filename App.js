@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { AppLoading } from 'expo';
+import AppNavigator from './navigation/AppNavigator';
 import * as Font from 'expo-font';
 
 const fetchFonts = () => {
@@ -27,14 +28,7 @@ class App extends React.Component {
       );
     }
 
-    return (
-      <View style={styles.container}>
-        <Text>Test de la police d'ecriture</Text>
-        <Text style={styles.test}>
-          Open up App.js to start working on your app!
-        </Text>
-      </View>
-    );
+    return <AppNavigator></AppNavigator>;
   }
 }
 
