@@ -28,21 +28,10 @@ class App extends React.Component {
       );
     }
 
-    return <AppNavigator></AppNavigator>;
+    return <AppNavigator style={styles.container}></AppNavigator>;
   }
 }
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  test: {
-    fontFamily: 'open-sans-bold',
-    fontSize: 18
-  }
-});
+const styles = StyleSheet.create({});

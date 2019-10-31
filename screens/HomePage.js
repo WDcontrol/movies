@@ -6,7 +6,11 @@ class HomePage extends React.Component {
     return (
       <View>
         <Text>I'm the Home page screen !</Text>
-        <Button title='Go to All movies' onPress={() => {}}></Button>
+        <Button
+          title='Go to All movies'
+          onPress={() => {
+            this.props.navigation.navigate('AllMovies');
+          }}></Button>
       </View>
     );
   }

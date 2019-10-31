@@ -13,7 +13,7 @@ const AppNavigator = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: 'black'
+        backgroundColor: ''
       },
       headerTitleStyle: {
         fontFamily: 'open-sans-bold'
