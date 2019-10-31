@@ -10,27 +10,35 @@ const fetchFonts = () => {
   });
 };
 
-export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-  if (!fontLoaded) {
+class App extends React.Component {
+  state = {
+    fontLoaded: false
+  };
+
+  render() {
+    if (!this.state.fontLoaded) {
+      return (
+        <AppLoading
+          startAsync={fetchFonts}
+          onFinish={() => {
+            this.setState({ fontLoaded: true });
+          }}
+        />
+      );
+    }
+
     return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => {
-          setFontLoaded(true);
-        }}
-      />
+      <View style={styles.container}>
+        <Text>Test de la police d'ecriture</Text>
+        <Text style={styles.test}>
+          Open up App.js to start working on your app!
+        </Text>
+      </View>
     );
   }
-  return (
-    <View style={styles.container}>
-      <Text>Test de la police d'ecriture</Text>
-      <Text style={styles.test}>
-        Open up App.js to start working on your app!
-      </Text>
-    </View>
-  );
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
