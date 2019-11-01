@@ -5,39 +5,35 @@ const url = `https://api.themoviedb.org/3`;
 // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}`;
 
 class TMDBService {
+    
+    getTopRatedMovies(){
 
-    getTrending(scope = "all", time_window = "day"){
-        // @param:scope => all, movie, tv or person
-        // @param:time_window => day or week
-        return axios.get(`${url}/trending/${scope}/${time_window}?api_key=${key}`);
     }
 
-    getDetails(id,type="movie"){
-        // @param:id => id of the movie / tv show
-        // @param:type => movie or tv
-        return axios.get(`${url}/${type}/${id}?${key}`)
+    getUpcomingMovies(){
+
     }
 
-    getRecommandationById(id, type="movie"){
-        return axios.get(`${url}/${type}/${id}/recommandations?${key}`)
+    getNowPlayingOnTheatherMovies(){
+
     }
 
-    getVideos(id, type="movie"){
-        return axios.get(`${url}/${type}/${id}/videos?${key}`)
+    getPopularMovies(){
+
     }
 
-    getLinkedImages(id, type="movie"){
-        
-        return axios.get(`${url}/${type}/${id}/images?${key}`)
+    getPopularTvShow(){
+
+    }
+
+    getTopRatedTvShow(){
+
+    }
+
+    getPopularPeopleAndTheirMovies(){
+
     }
     
-    getMultiSearch(query,language="fr-FR"){
-        let language = `language=${language}`;
-        let query = `query=${query}`;
-        return axios.get(`${url}/search/multi?${key}&${query}&${language}`)
-    }
-    
-
 }
 
 export default TMDBService
