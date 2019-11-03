@@ -1,50 +1,43 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-import ImgMovie from '../components/ImgMovie';
+import {ScrollViewComponent} from '../components'
 
 class HomePage extends React.Component {
+
+
   render() {
     return (
       <View>
+        <ScrollView>
         <View style={styles.logo}>
           <Text style={styles.textLogo}>LOGO</Text>
         </View>
-        <Text style={styles.categories}>Populaire</Text>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View style={styles.categoryContainer}>
-            <ImgMovie
-              image={
-                'http://fr.web.img5.acsta.net/pictures/19/04/04/17/52/0652795.jpg'
-              }
-            />
-            <ImgMovie
-              image={
-                'http://www.filmsquebec.com/wp-content/uploads/2013/04/secret-de-jerome.jpg'
-              }
-            />
-            <ImgMovie
-              image={
-                'https://media.senscritique.com/media/000000150071/source_big/Bastien_Bastienne.jpg'
-              }
-            />
-            <ImgMovie
-              image={
-                'http://t0.gstatic.com/images?q=tbn:ANd9GcQzX-5nDWw-_V1mEaNgDgHDdozTyRCu6T6XAh4E7CjtjhAMKXzW'
-              }
-            />
-            <ImgMovie
-              image={
-                'http://t0.gstatic.com/images?q=tbn:ANd9GcQzX-5nDWw-_V1mEaNgDgHDdozTyRCu6T6XAh4E7CjtjhAMKXzW'
-              }
-            />
-            <ImgMovie
-              image={
-                'http://t0.gstatic.com/images?q=tbn:ANd9GcQzX-5nDWw-_V1mEaNgDgHDdozTyRCu6T6XAh4E7CjtjhAMKXzW'
-              }
-            />
-          </View>
-        </ScrollView>
+        <View>
+              <Text style={styles.categories}>Films les mieux notés</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+
+              <Text style={styles.categories}>Films à venir</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+              
+              <Text style={styles.categories}>Films au cinéma actuellement</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+
+              <Text style={styles.categories}>Films populaires</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+              
+              <Text style={styles.categories}>Séries populaires</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+
+              <Text style={styles.categories}>Séries les mieux notées</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+              
+              <Text style={styles.categories}>Acteurs populaires</Text>
+              <ScrollViewComponent></ScrollViewComponent>
+              
+            </View>
+          </ScrollView>
+
+        
 
         {/* <Button
           title='Go to All movies'
@@ -76,10 +69,6 @@ const styles = StyleSheet.create({
     fontFamily: 'open-sans-bold',
     color: 'black',
     marginLeft: 5
-  },
-  categoryContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
   }
 });
 
