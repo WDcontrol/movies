@@ -32,6 +32,15 @@ class TMDBService {
     getPopularPeopleAndTheirMovies(){
         return axios.get(`${url}/person/popular?api_key=${key}&language=fr-FR`)
     }
+
+    getMovieDetails(id){
+        return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR`)
+        // return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR&append_to_response=videos,credits,recommandations`)
+    }
+
+    getFilmDetails(id){
+        return axios.get(`${url}/tv/${id}?api_key=${key}&language=fr-FR`)
+    }
     
 }
 
