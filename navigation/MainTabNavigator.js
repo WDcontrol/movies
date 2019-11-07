@@ -6,11 +6,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomePage from '../screens/HomePage';
 import AllMoviesScreen from '../screens/AllMoviesScreen';
 import FavoriteMoviesScreen from '../screens/FavoriteMoviesScreen';
+import MovieDetailScreen from '../screens/MovieDetailScreen';
 
 const AppNavigator = createStackNavigator(
   {
     Home: HomePage,
-    AllMovies: AllMoviesScreen,
     MovieDetail: MovieDetailScreen
   },
   {
@@ -32,7 +32,7 @@ const AppNavigator = createStackNavigator(
 const tabNavigator = createMaterialBottomTabNavigator(
   {
     Home: {
-      screen: HomePage,
+      screen: AppNavigator,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <Icon color={tintColor} size={25} name={'ios-home'} />
@@ -53,7 +53,7 @@ const tabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: 'Favorites',
         tabBarIcon: ({ tintColor }) => (
-          <Icon color={tintColor} size={25} name={'ios-settings'} />
+          <Icon color={tintColor} size={25} name={'ios-star'} />
         ),
         barStyle: { backgroundColor: 'grey' }
       }

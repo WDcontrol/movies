@@ -1,43 +1,45 @@
 import React from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
-import {ScrollViewComponent} from '../components'
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity
+} from 'react-native';
+import { ScrollViewComponent } from '../components';
 
 class HomePage extends React.Component {
-
-
   render() {
     return (
       <View>
         <ScrollView>
-        <View style={styles.logo}>
-          <Text style={styles.textLogo}>LOGO</Text>
-        </View>
-        <View>
-              <Text style={styles.categories}>Films les mieux notés</Text>
-              <ScrollViewComponent></ScrollViewComponent>
+          <View style={styles.logo}>
+            <Text style={styles.textLogo}>LOGO</Text>
+          </View>
+          <View>
+            <Text style={styles.categories}>Films les mieux notés</Text>
 
-              <Text style={styles.categories}>Films à venir</Text>
-              <ScrollViewComponent></ScrollViewComponent>
-              
-              <Text style={styles.categories}>Films au cinéma actuellement</Text>
-              <ScrollViewComponent></ScrollViewComponent>
+            <ScrollViewComponent></ScrollViewComponent>
 
-              <Text style={styles.categories}>Films populaires</Text>
-              <ScrollViewComponent></ScrollViewComponent>
-              
-              <Text style={styles.categories}>Séries populaires</Text>
-              <ScrollViewComponent></ScrollViewComponent>
+            <Text style={styles.categories}>Films à venir</Text>
+            <ScrollViewComponent></ScrollViewComponent>
 
-              <Text style={styles.categories}>Séries les mieux notées</Text>
-              <ScrollViewComponent></ScrollViewComponent>
-              
-              <Text style={styles.categories}>Acteurs populaires</Text>
-              <ScrollViewComponent></ScrollViewComponent>
-              
-            </View>
-          </ScrollView>
+            <Text style={styles.categories}>Films au cinéma actuellement</Text>
+            <ScrollViewComponent></ScrollViewComponent>
 
-        
+            <Text style={styles.categories}>Films populaires</Text>
+            <ScrollViewComponent></ScrollViewComponent>
+
+            <Text style={styles.categories}>Séries populaires</Text>
+            <ScrollViewComponent></ScrollViewComponent>
+
+            <Text style={styles.categories}>Séries les mieux notées</Text>
+            <ScrollViewComponent></ScrollViewComponent>
+
+            <Text style={styles.categories}>Acteurs populaires</Text>
+            <ScrollViewComponent></ScrollViewComponent>
+          </View>
+        </ScrollView>
 
         {/* <Button
           title='Go to All movies'
