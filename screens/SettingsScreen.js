@@ -5,7 +5,7 @@ export default class SettingsScreen extends React.Component{
     render(){
         return(
             <View>
-                <Text>Movie Screen</Text>
+                <Text>Settings Screen</Text>
             </View>
         )
     }

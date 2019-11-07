@@ -3,6 +3,7 @@ import {
     HomeScreen,
     FavoriteAndWatchedMoviesScreen,
     SettingsScreen,
+    SearchScreen,
 } from "../screens";
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -19,6 +20,15 @@ const tabNavigator = createMaterialBottomTabNavigator(
                 )
             }
         },
+        Search: {
+            screen: SearchScreen,
+            navigationOptions: {
+                tabBarLabel: 'Search',
+                tabBarIcon: ({ tintColor }) => (
+                    <Icon color={tintColor} size={25} name={'ios-search'} />
+                )
+            }
+        },
         FavoritesAndWatched: {
             screen: FavoriteAndWatchedMoviesScreen,
             navigationOptions: {
@@ -28,16 +38,16 @@ const tabNavigator = createMaterialBottomTabNavigator(
                 )
             }
         },
-        Settings: {
-            screen: SettingsScreen,
-            navigationOptions: {
-                tabBarLabel: 'Paramètres',
-                tabBarIcon: ({ tintColor }) => (
-                    <Icon color={tintColor} size={25} name={'ios-settings'} />
-                ),
-                barStyle: { backgroundColor: 'red' }
-            }
-        }
+        // Settings: {
+        //     screen: SettingsScreen,
+        //     navigationOptions: {
+        //         tabBarLabel: 'Paramètres',
+        //         tabBarIcon: ({ tintColor }) => (
+        //             <Icon color={tintColor} size={25} name={'ios-settings'} />
+        //         ),
+        //         barStyle: { backgroundColor: 'red' }
+        //     }
+        // },
     },
     {
         initialRouteName: 'Home'
