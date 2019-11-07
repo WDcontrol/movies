@@ -1,18 +1,82 @@
 import React from 'react';
 import {
-  HomeScreen,
+  HomePage,
   FavoriteAndWatchedMoviesScreen,
   SettingsScreen,
-  SearchScreen
+  SearchScreen,
+  MovieDetailScreen
 } from '../screens';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createStackNavigator } from 'react-navigation-stack';
 
+const HomeStackNavigator = createStackNavigator(
+  {
+    Home: HomePage,
+    MovieDetail: MovieDetailScreen
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: ''
+      },
+      headerTitleStyle: {
+        fontFamily: 'open-sans-bold'
+      },
+      headerBackTitleStyle: {
+        fontFamily: 'open-sans'
+      },
+      headerTintColor: 'white'
+    }
+  }
+);
+
+const SearchStackNavigator = createStackNavigator(
+  {
+    Search: SearchScreen,
+    MovieDetail: MovieDetailScreen
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: ''
+      },
+      headerTitleStyle: {
+        fontFamily: 'open-sans-bold'
+      },
+      headerBackTitleStyle: {
+        fontFamily: 'open-sans'
+      },
+      headerTintColor: 'white'
+    }
+  }
+);
+
+const FavoriteAndWatchedStackNavigatorvigator = createStackNavigator(
+  {
+    FavoriteAndToWatch: FavoriteAndWatchedMoviesScreen,
+    MovieDetail: MovieDetailScreen
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: ''
+      },
+      headerTitleStyle: {
+        fontFamily: 'open-sans-bold'
+      },
+      headerBackTitleStyle: {
+        fontFamily: 'open-sans'
+      },
+      headerTintColor: 'white'
+    }
+  }
+);
+
 const tabNavigator = createMaterialBottomTabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen: HomeStackNavigator,
       navigationOptions: {
         tabBarLabel: 'Accueil',
         tabBarIcon: ({ tintColor }) => (
@@ -21,7 +85,7 @@ const tabNavigator = createMaterialBottomTabNavigator(
       }
     },
     Search: {
-      screen: SearchScreen,
+      screen: SearchStackNavigator,
       navigationOptions: {
         tabBarLabel: 'Search',
         tabBarIcon: ({ tintColor }) => (
@@ -30,7 +94,7 @@ const tabNavigator = createMaterialBottomTabNavigator(
       }
     },
     FavoritesAndWatched: {
-      screen: FavoriteAndWatchedMoviesScreen,
+      screen: FavoriteAndWatchedStackNavigatorvigator,
       navigationOptions: {
         tabBarLabel: 'Favoris/Vus',
         tabBarIcon: ({ tintColor }) => (
