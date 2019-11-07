@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
-import {ScrollViewComponent} from '../components'
+import {ScrollViewComponent} from '../components';
 
 class HomePage extends React.Component {
 
