@@ -40,12 +40,6 @@ class HomePage extends React.Component {
             <ScrollViewComponent></ScrollViewComponent>
           </View>
         </ScrollView>
-
-        {/* <Button
-          title='Go to All movies'
-          onPress={() => {
-            this.props.navigation.navigate('AllMovies');
-          }}></Button> */}
       </View>
     );
   }
