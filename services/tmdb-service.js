@@ -41,13 +41,13 @@ class TMDBService {
     getFilmDetails(id){
         return axios.get(`${url}/tv/${id}?api_key=${key}&language=fr-FR`)
     }
-    
-    getMoviesCategories(){
-        return axios.get(`${url}/genre/movies/list?api_key=${key}&language=fr-FR`)    
-    }
 
     getMoviesByCategories(idCat){
         return axios.get(`${url}/discover/movie?api_key=${key}&language=fr-FR&region=FR&sort_by=popularity.desc&include_video=false&with_genres=${idCat}&`)
+    }
+
+    getTVShowByCategories(idCat){
+        return axios.get(`${url}/discover/tv?api_key=${key}&language=fr-FR&region=FR&sort_by=popularity.desc&include_video=false&with_genres=${idCat}&`)
     }
 
 }
