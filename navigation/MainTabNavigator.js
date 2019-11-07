@@ -26,7 +26,7 @@ const HomeStackNavigator = createStackNavigator(
       headerBackTitleStyle: {
         fontFamily: 'open-sans'
       },
-      headerTintColor: 'white'
+      headerTintColor: 'black'
     }
   }
 );

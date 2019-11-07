@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { ScrollViewComponent } from '../components';
+import { Button } from 'react-native-paper';
 
 class HomePage extends React.Component {
   render() {
@@ -17,6 +18,11 @@ class HomePage extends React.Component {
             <Text style={styles.textLogo}>LOGO</Text>
           </View>
           <View>
+            <Button
+              title='go To detail'
+              onPress={() => {
+                this.props.navigation.navigate('MovieDetail');
+              }}></Button>
             <Text style={styles.categories}>Films les mieux notés</Text>
 
             <ScrollViewComponent></ScrollViewComponent>
