@@ -1,41 +1,16 @@
-import { AsyncStorage } from 'react-native';
+import { WATCHED_INIT } from '../actions/WatchedAction';
+import { FAVORITES_INIT } from '../actions/FavoritesAction';
+const INITIAL_STATE = {
+    watched: [],
+    favorites:[],
+};
 
-export const CITIES_INIT = 'CITIES_INIT';
-export const CITIES_ADD = 'CITIES_ADD';
-export const CITIES_DELETE = 'CITIES_DELETE';
-
-export const initAsync = () => {
-    return dispatch => {
-        AsyncStorage.getItem('cities').then(data => {
-            return dispatch({ type: CITIES_INIT, payload: JSON.parse(data) });
-        });
-    };
-}
-
-export const addAsync = () => {
-    return dispatch => {
-        AsyncStorage.getItem('cities').then(data => {
-            let tab = [];
-            if (data !== null) {
-                tab = JSON.parse(data);
-            }
-            tab.push(this.state.cityName);
-            AsyncStorage.setItem('cities', JSON.stringify(tab))
-                .then(() => {
-                    return dispatch({ type: CITIES_INIT, payload: tab });
-                });
-        });
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case WATCHED_INIT:
+            return { watched: action.payload };
+        case FAVORITES_INIT:
+            return { favorites: action.payload }
     }
-}
-export const deleteAsync = (cityName) => {
-    return dispatch => {
-        AsyncStorage.getItem('cities').then(data => {
-            const tab = JSON.parse(data);
-            tab.splice(tab.findIndex(e => e === cityName), 1);
-            AsyncStorage.setItem('cities', JSON.stringify(tab))
-                .then(() => {
-                    return dispatch({ type: CITIES_INIT, payload: JSON.parse(data) });
-                });
-        });
-    };
+    return state;
 }
