@@ -6,18 +6,18 @@ import TMDBService from '../services/tmdb-service';
 export default class SearchScreen extends React.Component{
     tmdb = new TMDBService();
 
-    getMovie(){
+    async getMovie(idCat){
       console.log('oui');
 
-      this.tmdb.getMoviesByCategories().then( element => {        
-        console.log('oui');
+      this.tmdb.getMoviesByCategories(idCat).then( (element) => {        
         
-        console.log('element', element);
+        console.log('element', element.data);
       })
+      
     }
 
     render(){
-      this.getMovie();
+      this.getMovie(12);
       
         return(
             <View style={{marginTop:40}}>
