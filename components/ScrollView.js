@@ -4,17 +4,8 @@ import { ImgMovie } from '../components';
 import { connect } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { withNavigation } from 'react-navigation';
-import PropTypes from 'prop-types';
 
 class Flatlist extends React.Component {
-  state = {
-    movies: []
-  };
-
-  static propTypes = {
-    movies: PropTypes.string.isRequired
-  };
-
   static defaultProps = {
     movies: []
   };

@@ -38,8 +38,18 @@ class TMDBService {
   }
 
   getMovieDetails(id) {
+<<<<<<< HEAD
     return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR`);
     // return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR&append_to_response=videos,credits,recommandations`)
+=======
+    return axios.get(
+      `${url}/movie/${id}?api_key=${key}&language=fr-FR&append_to_response=credits,videos`
+    );
+  }
+
+  getFilmDetails(id) {
+    return axios.get(`${url}/tv/${id}?api_key=${key}&language=fr-FR`);
+>>>>>>> origin/master
   }
 
   getTVDetails(id) {
@@ -52,11 +62,17 @@ class TMDBService {
     );
   }
 
+<<<<<<< HEAD
   getTVShowByCategories(idCat) {
     return axios.get(
       `${url}/discover/tv?api_key=${key}&language=fr-FR&region=FR&sort_by=popularity.desc&include_video=false&with_genres=${idCat}&`
     );
   }
+=======
+    getMoviesByName(name){
+        return axios.get(`${url}/search/movie?api_key=${key}&language=fr-FR&page=1&include_adult=false&query=${name}`)
+    }
+>>>>>>> origin/master
 
   getMoviesByName(name) {
     return axios.get(
