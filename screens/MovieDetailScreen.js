@@ -1,24 +1,35 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { ImgMovie } from '../components';
-import { processFontFamily } from 'expo-font';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/headerButton';
 import { Video } from 'expo-av';
+import TMBService from '../services/tmdb-service';
 
 class MovieDetailScreen extends React.Component {
+  serv = new TMBService();
+  state = {
+    MovieDetail: []
+  };
+  componentDidMount() {
+    const arr = [];
+    this.serv.getMovieDetails(475557).then((resp) => {
+      this.setState({ MovieDetail: resp.data });
+    });
+  }
+
   render() {
+    //console.log(this.state.MovieDetail.length, 'render');
+    //console.log(this.state.MovieDetail.genres, 'render');
     return (
       <View>
         <View style={styles.detailContainer}>
           <View style={styles.imgContainer}>
-            <ImgMovie
-              image={
-                'http://fr.web.img5.acsta.net/pictures/19/04/04/17/52/0652795.jpg'
-              }
-            />
+            <ImgMovie image={this.state.MovieDetail.poster_path} />
           </View>
           <View>
             <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
-              Joker
+              {this.state.MovieDetail.original_title}
             </Text>
             <Text> De todd Phillips</Text>
             <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
@@ -40,13 +51,16 @@ class MovieDetailScreen extends React.Component {
           />
         </View>
         <View style={styles.description}>
-          <Text style={styles.text}>2h02 | Drame | Canada, U.S.A</Text>
           <Text style={styles.text}>
-            Le film, qui relate une histoire originale inédite sur grand écran,
-            se focalise sur la figure emblématique de l’ennemi juré de Batman.
-            Il brosse le portrait d’Arthur Fleck, un homme sans concession
-            méprisé par la société.
+            2h02 |
+            {this.state.MovieDetail && this.state.MovieDetail.genres
+              ? this.state.MovieDetail.genres.map((data) => {
+                  return <Text>{data.name}</Text>;
+                })
+              : null}
+            | Canada, U.S.A
           </Text>
+          <Text style={styles.text}>{this.state.MovieDetail.overview}</Text>
           <Text
             style={{
               fontFamily: 'open-sans-bold',
@@ -60,6 +74,30 @@ class MovieDetailScreen extends React.Component {
     );
   }
 }
+
+MovieDetailScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: 'Le nom de film',
+    headerRight: (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title='Watch'
+          iconName='ios-play'
+          onPress={() => {
+            console.log('Ajouter a la liste de film à voir');
+          }}
+        />
+        <Item
+          title='Favoris'
+          iconName='ios-star'
+          onPress={() => {
+            console.log('ajouter au fav');
+          }}
+        />
+      </HeaderButtons>
+    )
+  };
+};
 
 const styles = StyleSheet.create({
   imgContainer: {
