@@ -5,15 +5,18 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/headerButton';
 import { Video } from 'expo-av';
 import TMBService from '../services/tmdb-service';
+import { withNavigation } from 'react-navigation';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class MovieDetailScreen extends React.Component {
   serv = new TMBService();
   state = {
     MovieDetail: []
   };
+
   componentDidMount() {
-    const arr = [];
-    this.serv.getMovieDetails(475557).then((resp) => {
+    const MovieId = this.props.navigation.getParam('movieId');
+    this.serv.getMovieDetails(MovieId).then((resp) => {
       this.setState({ MovieDetail: resp.data });
     });
   }
@@ -21,69 +24,73 @@ class MovieDetailScreen extends React.Component {
   render() {
     //console.log(this.state.MovieDetail.length, 'render');
     //console.log(this.state.MovieDetail.genres, 'render');
-    console.log(this.props.navigation.getParam('movieId', 'NO-ID'));
+    //console.log(MovieId);
+
     return (
-      <View>
-        <View style={styles.detailContainer}>
-          <View style={styles.imgContainer}>
-            <ImgMovie image={this.state.MovieDetail.poster_path} />
+      <ScrollView>
+        <View>
+          <View style={styles.detailContainer}>
+            <View style={styles.imgContainer}>
+              <ImgMovie imageUrl={this.state.MovieDetail.poster_path} />
+            </View>
+            <View>
+              <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
+                {this.state.MovieDetail.title}
+              </Text>
+              <Text> De todd Phillips</Text>
+              <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
+              <Text> Sortie 09 oct. 2019</Text>
+            </View>
           </View>
-          <View>
-            <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
-              {this.state.MovieDetail.original_title}
+          <View style={{ width: 200, height: 300 }}>
+            <Video
+              source={{
+                uri: 'https://www.youtube.com/watch?v=98Y71K0hDOQ'
+              }}
+              rate={1.0}
+              volume={1.0}
+              isMuted={false}
+              resizeMode='cover'
+              shouldPlay
+              isLooping
+              style={{ width: '100%', height: '100%' }}
+            />
+          </View>
+          <View style={styles.description}>
+            <Text style={styles.text}>
+              {this.state.MovieDetail.runtime} |
+              {this.state.MovieDetail && this.state.MovieDetail.genres
+                ? this.state.MovieDetail.genres.map((data) => {
+                    return <Text> {data.name} </Text>;
+                  })
+                : null}
+              | Canada, U.S.A
             </Text>
-            <Text> De todd Phillips</Text>
-            <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
-            <Text> Sortie 09 oct. 2019</Text>
+            <Text style={styles.text}>{this.state.MovieDetail.overview}</Text>
+            <Text
+              style={{
+                fontFamily: 'open-sans-bold',
+                alignSelf: 'center',
+                marginTop: 10
+              }}>
+              Note : 8/10
+            </Text>
           </View>
         </View>
-        <View style={{ width: 200, height: 300 }}>
-          <Video
-            source={{
-              uri: 'https://www.youtube.com/watch?v=98Y71K0hDOQ'
-            }}
-            rate={1.0}
-            volume={1.0}
-            isMuted={false}
-            resizeMode='cover'
-            shouldPlay
-            isLooping
-            style={{ width: '100%', height: '100%' }}
-          />
-        </View>
-        <View style={styles.description}>
-          <Text style={styles.text}>
-            2h02 |
-            {this.state.MovieDetail && this.state.MovieDetail.genres
-              ? this.state.MovieDetail.genres.map((data) => {
-                  return <Text>{data.name}</Text>;
-                })
-              : null}
-            | Canada, U.S.A
-          </Text>
-          <Text style={styles.text}>{this.state.MovieDetail.overview}</Text>
-          <Text
-            style={{
-              fontFamily: 'open-sans-bold',
-              alignSelf: 'center',
-              marginTop: 10
-            }}>
-            Note : 8/10
-          </Text>
-        </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 
 MovieDetailScreen.navigationOptions = (navData) => {
+  const movieTitle = navData.navigation.getParam('movieTitle');
   return {
-    headerTitle: 'Le nom de film',
+    headerTitle: movieTitle,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title='Watch'
-          iconName='ios-play'
+          iconName='ios-eye'
           onPress={() => {
             console.log('Ajouter a la liste de film à voir');
           }}
@@ -122,4 +129,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MovieDetailScreen;
+export default withNavigation(MovieDetailScreen);

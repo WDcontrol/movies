@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
-import {ScrollViewComponent} from '../components';
+import { ScrollViewComponent } from '../components';
 
 class HomePage extends React.Component {
   render() {
@@ -11,11 +11,6 @@ class HomePage extends React.Component {
             <Text style={styles.textLogo}>LOGO</Text>
           </View>
           <View>
-            <Button
-              title='go To detail'
-              onPress={() => {
-                this.props.navigation.navigate('MovieDetail');
-              }}></Button>
             <Text style={styles.categories}>Films les mieux notés</Text>
 
             <ScrollViewComponent></ScrollViewComponent>
