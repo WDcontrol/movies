@@ -17,8 +17,6 @@ class HomePage extends React.Component {
 
   componentDidMount(){
     this.props.tmdbService.getTopRatedMovies().then((res)=>{
-        let arr = []
-        arr.push(res.data)
         this.setState({topRatedMovies: res.data})
     }).catch((err)=>console.log(err))
 }
