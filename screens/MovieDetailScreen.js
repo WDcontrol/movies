@@ -1,9 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, WebView } from 'react-native';
 import { ImgMovie } from '../components';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/headerButton';
-import { Video } from 'expo-av';
 import TMBService from '../services/tmdb-service';
 import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -13,19 +12,13 @@ class MovieDetailScreen extends React.Component {
   state = {
     MovieDetail: []
   };
-
   componentDidMount() {
     const MovieId = this.props.navigation.getParam('movieId');
     this.serv.getMovieDetails(MovieId).then((resp) => {
       this.setState({ MovieDetail: resp.data });
     });
   }
-
   render() {
-    //console.log(this.state.MovieDetail.length, 'render');
-    //console.log(this.state.MovieDetail.genres, 'render');
-    //console.log(MovieId);
-
     return (
       <ScrollView>
         <View>
@@ -43,18 +36,7 @@ class MovieDetailScreen extends React.Component {
             </View>
           </View>
           <View style={{ width: 200, height: 300 }}>
-            <Video
-              source={{
-                uri: 'https://www.youtube.com/watch?v=98Y71K0hDOQ'
-              }}
-              rate={1.0}
-              volume={1.0}
-              isMuted={false}
-              resizeMode='cover'
-              shouldPlay
-              isLooping
-              style={{ width: '100%', height: '100%' }}
-            />
+          
           </View>
           <View style={styles.description}>
             <Text style={styles.text}>
