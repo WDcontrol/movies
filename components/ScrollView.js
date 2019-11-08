@@ -4,20 +4,17 @@ import {ImgMovie} from '../components';
 import { connect } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { withNavigation } from 'react-navigation'
+import PropTypes from 'prop-types';
 
 class Flatlist extends React.Component{
 
-    state = {
-        movies: [],
+    static propTypes = {
+        movies: PropTypes.string.isRequired,
     }
 
-    componentDidMount(){
-        this.props.tmdbService.getTopRatedMovies().then((res)=>{
-            let arr = []
-            arr.push(res.data)
-            this.setState({movies: res.data})
-        }).catch((err)=>console.log(err))
-    }
+    static defaultProps = {
+        movies: [],
+    };
 
     onImgPress(MovieId){
         this.props.navigation.navigate('MovieDetail',
@@ -27,11 +24,11 @@ class Flatlist extends React.Component{
 
     render(){
         return(
-            this.state.movies.length != 0 ?
+            this.props.movies.length != 0 ?
                     <FlatList
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    data={this.state.movies.results}
+                    data={this.props.movies.results}
                     renderItem={({item}) => (
                         <View style={styles.imgContainer}>
                             <TouchableOpacity onPress={() => this.onImgPress(item.id)}>

@@ -1,8 +1,25 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import {ScrollViewComponent} from '../components';
+import { connect } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
 class HomePage extends React.Component {
+  state={
+    topRatedMovies:[],
+    UpcomingMovies:[],
+    NowPlayingOnTheatherMovies:[],
+    PopularMovies:[],
+
+    popularTV:[],
+    topRatedTV:[],
+  }
+
+  componentDidMount(){
+    this.props.tmdbService.getTopRatedMovies().then((res)=>{
+        this.setState({topRatedMovies: res.data})
+    }).catch((err)=>console.log(err))
+}
   render() {
     return (
       <View>
@@ -11,17 +28,11 @@ class HomePage extends React.Component {
             <Text style={styles.textLogo}>LOGO</Text>
           </View>
           <View>
-            <Button
-              title='go To detail'
-              onPress={() => {
-                this.props.navigation.navigate('MovieDetail');
-              }}></Button>
             <Text style={styles.categories}>Films les mieux notés</Text>
-
-            <ScrollViewComponent></ScrollViewComponent>
+            <ScrollViewComponent movies={this.state.topRatedMovies}></ScrollViewComponent>
 
             <Text style={styles.categories}>Films à venir</Text>
-            <ScrollViewComponent></ScrollViewComponent>
+            <ScrollViewComponent movies={this.state.upcomingMovies}></ScrollViewComponent>
 
             <Text style={styles.categories}>Films au cinéma actuellement</Text>
             <ScrollViewComponent></ScrollViewComponent>
@@ -67,4 +78,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomePage;
+const mapStateToProps = (stateStore) => {
+  return ({
+      tmdbService: stateStore.serviceReducer.tmdbService
+  });
+}
+
+export default withNavigation(connect(mapStateToProps)(HomePage));
