@@ -6,19 +6,16 @@ class FavoriteAndWatchedMoviesScreen extends React.Component {
   render() {
     return(
       <View style={{marginTop:40}}>
-      <ScrollView>
-
-<Text>Favories</Text>
-<View>
-<Text style={styles.categories}>Favories</Text>
-<ScrollViewComponent></ScrollViewComponent>
-
-<Text style={styles.categories}>A voir</Text>
-<ScrollViewComponent></ScrollViewComponent>
-
-</View>
-</ScrollView>
-</View>
+        <ScrollView>
+          <Text>Favories</Text>
+          <View>
+            <Text style={styles.categories}>Favories</Text>
+            <ScrollViewComponent></ScrollViewComponent>
+            <Text style={styles.categories}>A voir</Text>
+            <ScrollViewComponent></ScrollViewComponent>
+          </View>
+          </ScrollView>
+        </View>
     )
   }
 }

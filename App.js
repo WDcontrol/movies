@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import * as Font from 'expo-font';
+import { Provider } from 'react-redux';
+import { store } from './redux/Store';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -28,7 +30,11 @@ class App extends React.Component {
       );
     }
 
-    return <AppNavigator style={styles.container}></AppNavigator>;
+    return (
+      <Provider store={store}>
+        <AppNavigator style={styles.container}></AppNavigator>
+      </Provider>
+      );
   }
 }
 
