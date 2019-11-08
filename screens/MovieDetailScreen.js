@@ -21,6 +21,7 @@ class MovieDetailScreen extends React.Component {
   render() {
     //console.log(this.state.MovieDetail.length, 'render');
     //console.log(this.state.MovieDetail.genres, 'render');
+    console.log(this.props.navigation.getParam('movieId', 'NO-ID'));
     return (
       <View>
         <View style={styles.detailContainer}>

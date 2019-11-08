@@ -1,11 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import ServicesReducer from "./reducers/ServicesReducer";
-import CitiesReducer from "./reducers/CitiesReducer";
+import { ServicesReducer, FavoritesAndWatchedReducer } from "./reducers";
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
     serviceReducer: ServicesReducer,
-    citiesReducer: CitiesReducer
+    favoritesAndWatchedReducer: FavoritesAndWatchedReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
