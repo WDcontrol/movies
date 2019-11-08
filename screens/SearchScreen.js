@@ -1,9 +1,24 @@
 import React from 'react'
 import { Text, View, StyleSheet, TextInput, ScrollView, Button } from 'react-native';
 import {ScrollViewComponent} from '../components';
+import TMDBService from '../services/tmdb-service';
 
 export default class SearchScreen extends React.Component{
+    tmdb = new TMDBService();
+
+    getMovie(){
+      console.log('oui');
+
+      this.tmdb.getMoviesByCategories().then( element => {        
+        console.log('oui');
+        
+        console.log('element', element);
+      })
+    }
+
     render(){
+      this.getMovie();
+      
         return(
             <View style={{marginTop:40}}>
                         <ScrollView>

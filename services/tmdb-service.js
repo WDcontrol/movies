@@ -52,4 +52,4 @@ class TMDBService {
 
 }
 
-export default TMDBService
+export default TMDBService;
