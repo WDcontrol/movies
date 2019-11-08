@@ -4,7 +4,7 @@ import { View, Image, StyleSheet } from 'react-native';
 class ImgMovie extends React.Component {
   render() {
     return (
-      <Image style={styles.image} source={{ uri: this.props.image }}></Image>
+      <Image style={styles.image} source={{ uri: `https://image.tmdb.org/t/p/w185${this.props.imageUrl }` }}></Image>
     );
   }
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Text} from 'react-native';
 import {ImgMovie} from '../components';
-import TMDBService from '../services/tmdb-service'
 import { connect } from 'react-redux';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { withNavigation } from 'react-navigation'
 
 class Flatlist extends React.Component{
+
     state = {
         movies: [],
     }
@@ -17,8 +19,10 @@ class Flatlist extends React.Component{
         }).catch((err)=>console.log(err))
     }
 
-    onImgPress(){
-        this.props.navigation.navigate('AddFavorites');
+    onImgPress(MovieId){
+        this.props.navigation.navigate('MovieDetail',
+            {movieId:MovieId}
+        );
     }
 
     render(){
@@ -26,9 +30,14 @@ class Flatlist extends React.Component{
             this.state.movies.length != 0 ?
                     <FlatList
                     horizontal={true}
+                    showsHorizontalScrollIndicator={false}
                     data={this.state.movies.results}
                     renderItem={({item}) => (
-                        <Text>{item.poster_path}</Text>
+                        <View style={styles.imgContainer}>
+                            <TouchableOpacity onPress={() => this.onImgPress(item.id)}>
+                                <ImgMovie imageUrl={item.poster_path}></ImgMovie>
+                            </TouchableOpacity>
+                        </View>
                     )} />
             :
             <Text>No data</Text>
@@ -41,6 +50,12 @@ const styles = StyleSheet.create({
     categoryContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between'
+    },
+    imgContainer:{
+        height: 180,
+        width: 120,
+        marginHorizontal: 5,
+        marginVertical: 10
     }
   });
 
@@ -50,4 +65,4 @@ const mapStateToProps = (stateStore) => {
     });
 }
 
-export default connect(mapStateToProps)(Flatlist)
+export default withNavigation(connect(mapStateToProps)(Flatlist))

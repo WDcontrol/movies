@@ -5,6 +5,7 @@ import { Video } from 'expo-av';
 
 class MovieDetailScreen extends React.Component {
   render() {
+    console.log(this.props.navigation.getParam('movieId', 'NO-ID'))
     return (
       <View>
         <View style={styles.detailContainer}>
