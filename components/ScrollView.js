@@ -19,8 +19,11 @@ class Flatlist extends React.Component {
     movies: []
   };
 
-  onImgPress(MovieId) {
-    this.props.navigation.navigate('MovieDetail', { movieId: MovieId });
+  onImgPress(MovieId, MovieTitle) {
+    this.props.navigation.navigate('MovieDetail', {
+      movieId: MovieId,
+      movieTitle: MovieTitle
+    });
   }
 
   render() {
@@ -31,7 +34,8 @@ class Flatlist extends React.Component {
         data={this.props.movies.results}
         renderItem={({ item }) => (
           <View style={styles.imgContainer}>
-            <TouchableOpacity onPress={() => this.onImgPress(item.id)}>
+            <TouchableOpacity
+              onPress={() => this.onImgPress(item.id, item.title)}>
               <ImgMovie imageUrl={item.poster_path}></ImgMovie>
             </TouchableOpacity>
           </View>
