@@ -1,22 +1,38 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, FlatList, Text} from 'react-native';
 import {ImgMovie} from '../components';
-import {connect} from 'react-redux';
-import TMDBService from '../services/tmdb-service';
+import TMDBService from '../services/tmdb-service'
+import { connect } from 'react-redux';
 
-class Scrollview extends React.Component{
+class Flatlist extends React.Component{
+    state = {
+        movies: [],
+    }
+
+    componentDidMount(){
+        this.props.tmdbService.getTopRatedMovies().then((res)=>{
+            let arr = []
+            arr.push(res.data)
+            this.setState({movies: res.data})
+        }).catch((err)=>console.log(err))
+    }
 
     onImgPress(){
-        this.props.navigation.navigate('');
+        this.props.navigation.navigate('AddFavorites');
     }
 
     render(){
         return(
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            <View style={styles.categoryContainer}>
+            this.state.movies.length != 0 ?
+                    <FlatList
+                    horizontal={true}
+                    data={this.state.movies.results}
+                    renderItem={({item}) => (
+                        <Text>{item.poster_path}</Text>
+                    )} />
+            :
+            <Text>No data</Text>
 
-          </View>
-        </ScrollView>
         )
     }
 }
@@ -28,4 +44,10 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Scrollview
+const mapStateToProps = (stateStore) => {
+    return ({
+        tmdbService: stateStore.serviceReducer.tmdbService
+    });
+}
+
+export default connect(mapStateToProps)(Flatlist)

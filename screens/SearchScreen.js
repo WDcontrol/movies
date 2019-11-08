@@ -7,7 +7,6 @@ export default class SearchScreen extends React.Component{
         return(
             <View style={{marginTop:40}}>
             <ScrollView>
-            
             <Text>Catégories</Text>
             <TextInput placeholder = "Entrer le nom de film"></TextInput>
             <Button title="Rechercher" />
