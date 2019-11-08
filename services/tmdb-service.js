@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const key = '0cb2b2ff71b28e5e89226d01b98cc3df';
 const url = `https://api.themoviedb.org/3`;
 
@@ -39,23 +38,23 @@ class TMDBService {
   }
 
   getMovieDetails(id) {
-    return axios.get(
-      `${url}/movie/${id}?api_key=${key}&language=fr-FR&append_to_response=credits,videos`
-    );
+    return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR`);
     // return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR&append_to_response=videos,credits,recommandations`)
   }
 
-  getFilmDetails(id) {
+  getTVDetails(id) {
     return axios.get(`${url}/tv/${id}?api_key=${key}&language=fr-FR`);
   }
 
-  getTopRatedMovies() {
-    return axios.get(`${url}/movie/top_rated?api_key=${key}&language=fr-FR`);
+  getMoviesByCategories(idCat) {
+    return axios.get(
+      `${url}/discover/movie?api_key=${key}&language=fr-FR&region=FR&sort_by=popularity.desc&include_video=false&with_genres=${idCat}&`
+    );
   }
 
-  getUpcomingMovies() {
+  getTVShowByCategories(idCat) {
     return axios.get(
-      `${url}/movie/upcoming?api_key=${key}&language=fr-FR&region=FR`
+      `${url}/discover/tv?api_key=${key}&language=fr-FR&region=FR&sort_by=popularity.desc&include_video=false&with_genres=${idCat}&`
     );
   }
 
