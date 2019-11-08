@@ -35,7 +35,6 @@ class TMDBService {
 
     getMovieDetails(id){
         return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR`)
-        // return axios.get(`${url}/movie/${id}?api_key=${key}&language=fr-FR&append_to_response=videos,credits,recommandations`)
     }
 
     getTVDetails(id){
