@@ -9,13 +9,15 @@ class Flatlist extends React.Component {
 
     static defaultProps = {
         movies: [],
+        typeOfContent: 0, // film
     };
 
-    onImgPress(MovieId, MovieTitle){
+    onImgPress(Movie,TypeOfContent){
         this.props.navigation.navigate('MovieDetail',
             {
-                movieId:MovieId,
-                movieTitle:MovieTitle,
+                movieId:Movie.id,
+                movieTitle:Movie.title || Movie.name,
+                typeOfContent: TypeOfContent
             }
         );
     }
@@ -23,17 +25,17 @@ class Flatlist extends React.Component {
     render(){
         return(
             this.props.movies.length != 0 ?
-                    <FlatList
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    data={this.props.movies.results}
-                    renderItem={({item}) => (
-                        <View style={styles.imgContainer}>
-                            <TouchableOpacity onPress={() => this.onImgPress(item.id,item.title)}>
-                                <ImgMovie imageUrl={item.poster_path}></ImgMovie>
-                            </TouchableOpacity>
-                        </View>
-                    )} />
+              <FlatList
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              data={this.props.movies.results}
+              renderItem={({item}) => (
+                  <View style={styles.imgContainer}>
+                      <TouchableOpacity onPress={() => this.onImgPress(item,this.props.typeOfContent)}>
+                          <ImgMovie imageUrl={item.poster_path}></ImgMovie>
+                      </TouchableOpacity>
+                  </View>
+              )} />
             :
             <Text>No data</Text>
         )

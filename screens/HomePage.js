@@ -89,11 +89,13 @@ class HomePage extends React.Component {
             <Text style={styles.categories}>Séries populaires</Text>
             <ScrollViewComponent
               movies={this.state.popularTvShow}
+              typeOfContent={1} // TV show
             ></ScrollViewComponent>
 
             <Text style={styles.categories}>Séries les mieux notées</Text>
             <ScrollViewComponent
               movies={this.state.topRatedTvShow}
+              typeOfContent={1} // TV show
             ></ScrollViewComponent>
           </View>
         </ScrollView>
