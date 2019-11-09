@@ -113,7 +113,8 @@ const tabNavigator = createMaterialBottomTabNavigator(
     // },
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    barStyle: { backgroundColor: 'white' }
   }
 );
 

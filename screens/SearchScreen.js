@@ -64,13 +64,17 @@ class SearchScreen extends React.Component {
       .catch(err => console.log(err));
   }
 
+  search() {
+    console.log('oui');
+  }
+
   render() {
     return (
       <View style={{ marginTop: 40 }}>
         <ScrollView>
           <Text>Catégories</Text>
           <TextInput placeholder="Entrer le nom de film"></TextInput>
-          <Button title="Rechercher" />
+          <Button title="Rechercher" onPress={() => this.search()}/>
           <View>
             <Text style={styles.categories}>Comédie :</Text>
             <ScrollViewComponent
