@@ -8,15 +8,46 @@ import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 
 class MovieDetailScreen extends React.Component {
+  static navigationOptions = ({navigation}) => {
+    var HeaderTitle = navigation.getParam('movieTitle')
+    return {
+      headerTitle: HeaderTitle,
+      headerRight: (
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title='Watch'
+            iconName='ios-eye'
+            onPress={() => {
+              console.log('Ajouter a la liste de film à voir');
+            }}
+          />
+          <Item
+            title='Favoris'
+            iconName='ios-star'
+            onPress={() => {
+              console.log('ajouter au fav');
+            }}
+          />
+        </HeaderButtons>
+      )
+    };
+  };
+
   serv = new TMBService();
   state = {
     MovieDetail: []
   };
   componentDidMount() {
     const MovieId = this.props.navigation.getParam('movieId');
-    this.serv.getMovieDetails(MovieId).then((resp) => {
-      this.setState({ MovieDetail: resp.data });
-    });
+    if(this.props.navigation.getParam('typeOfContent') === 0){  // movie
+      this.serv.getMovieDetails(MovieId).then((resp) => {
+        this.setState({ MovieDetail: resp.data });
+      });
+    }else{
+        this.serv.getTVDetails(MovieId).then((resp) => { // tv show
+          this.setState({ MovieDetail: resp.data });
+        });
+    }
   }
   render() {
     return (
@@ -28,7 +59,7 @@ class MovieDetailScreen extends React.Component {
             </View>
             <View>
               <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
-                {this.state.MovieDetail.title}
+                {this.state.MovieDetail.title || this.state.MovieDetail.name }
               </Text>
               <Text> De todd Phillips</Text>
               <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
@@ -63,31 +94,6 @@ class MovieDetailScreen extends React.Component {
     );
   }
 }
-
-MovieDetailScreen.navigationOptions = (navData) => {
-  const movieTitle = navData.navigation.getParam('movieTitle');
-  return {
-    headerTitle: movieTitle,
-    headerRight: (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title='Watch'
-          iconName='ios-eye'
-          onPress={() => {
-            console.log('Ajouter a la liste de film à voir');
-          }}
-        />
-        <Item
-          title='Favoris'
-          iconName='ios-star'
-          onPress={() => {
-            console.log('ajouter au fav');
-          }}
-        />
-      </HeaderButtons>
-    )
-  };
-};
 
 const styles = StyleSheet.create({
   imgContainer: {

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   HomePage,
   FavoriteAndWatchedMoviesScreen,
-  SettingsScreen,
   SearchScreen,
   MovieDetailScreen
 } from '../screens';
@@ -114,7 +113,8 @@ const tabNavigator = createMaterialBottomTabNavigator(
     // },
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    barStyle: { backgroundColor: 'white' }
   }
 );
 
