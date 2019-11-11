@@ -8,8 +8,8 @@ import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 
 class MovieDetailScreen extends React.Component {
-  static navigationOptions = ({navigation}) => {
-    var HeaderTitle = navigation.getParam('movieTitle')
+  static navigationOptions = ({ navigation }) => {
+    var HeaderTitle = navigation.getParam('movieTitle');
     return {
       headerTitle: HeaderTitle,
       headerRight: (
@@ -39,14 +39,16 @@ class MovieDetailScreen extends React.Component {
   };
   componentDidMount() {
     const MovieId = this.props.navigation.getParam('movieId');
-    if(this.props.navigation.getParam('typeOfContent') === 0){  // movie
+    if (this.props.navigation.getParam('typeOfContent') === 0) {
+      // movie
       this.serv.getMovieDetails(MovieId).then((resp) => {
         this.setState({ MovieDetail: resp.data });
       });
-    }else{
-        this.serv.getTVDetails(MovieId).then((resp) => { // tv show
-          this.setState({ MovieDetail: resp.data });
-        });
+    } else {
+      this.serv.getTVDetails(MovieId).then((resp) => {
+        // tv show
+        this.setState({ MovieDetail: resp.data });
+      });
     }
   }
   render() {
@@ -59,16 +61,14 @@ class MovieDetailScreen extends React.Component {
             </View>
             <View>
               <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
-                {this.state.MovieDetail.title || this.state.MovieDetail.name }
+                {this.state.MovieDetail.title || this.state.MovieDetail.name}
               </Text>
               <Text> De todd Phillips</Text>
               <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
               <Text> Sortie 09 oct. 2019</Text>
             </View>
           </View>
-          <View style={{ width: 200, height: 300 }}>
-          
-          </View>
+          <View style={{ width: 200, height: 300 }}></View>
           <View style={styles.description}>
             <Text style={styles.text}>
               {this.state.MovieDetail.runtime} |
