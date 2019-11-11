@@ -1,5 +1,5 @@
 # movies
-Movies app using OMDB api
+Movies app using TMDB api
 
 
 ```

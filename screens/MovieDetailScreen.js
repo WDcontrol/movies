@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 class MovieDetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
-    var HeaderTitle = navigation.getParam('movieTitle');
+    let HeaderTitle = navigation.getParam('movieTitle');
     return {
       headerTitle: HeaderTitle,
       headerRight: (
@@ -52,6 +52,14 @@ class MovieDetailScreen extends React.Component {
     }
   }
   render() {
+    const timeConvert = (n) => {
+      let num = n;
+      let hours = num / 60;
+      let rhours = Math.floor(hours);
+      let minutes = (hours - rhours) * 60;
+      let rminutes = Math.round(minutes);
+      return rhours + ' hour(s) and ' + rminutes + ' minute(s)';
+    };
     return (
       <ScrollView>
         <View>
@@ -71,13 +79,12 @@ class MovieDetailScreen extends React.Component {
           <View style={{ width: 200, height: 300 }}></View>
           <View style={styles.description}>
             <Text style={styles.text}>
-              {this.state.MovieDetail.runtime} |
+              {timeConvert(this.state.MovieDetail.runtime)}
               {this.state.MovieDetail && this.state.MovieDetail.genres
                 ? this.state.MovieDetail.genres.map((data) => {
-                    return <Text> {data.name} </Text>;
+                    return <Text>| {data.name} </Text>;
                   })
                 : null}
-              | Canada, U.S.A
             </Text>
             <Text style={styles.text}>{this.state.MovieDetail.overview}</Text>
             <Text
