@@ -6,26 +6,26 @@ import HeaderButton from '../components/headerButton';
 import TMBService from '../services/tmdb-service';
 import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addAsync } from '../redux/actions/FavoritesAction';
 
 class MovieDetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let HeaderTitle = navigation.getParam('movieTitle');
+    const favId = navigation.getParam('movieId');
+
     return {
       headerTitle: HeaderTitle,
       headerRight: (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title='Watch'
-            iconName='ios-eye'
-            onPress={() => {
-              console.log('Ajouter a la liste de film à voir');
-            }}
-          />
+          <Item title='Watch' iconName='ios-eye' onPress={() => {}} />
           <Item
             title='Favoris'
             iconName='ios-star'
             onPress={() => {
-              console.log('ajouter au fav');
+              this.props.actions.addMovie(favId);
+              navigation.navigate('FavoriteAndToWatch');
             }}
           />
         </HeaderButtons>
@@ -35,10 +35,16 @@ class MovieDetailScreen extends React.Component {
 
   serv = new TMBService();
   state = {
-    MovieDetail: []
+    MovieDetail: [],
+    MovieID: null
   };
+
   componentDidMount() {
+    console.log('[THE PROPS]', this.props);
+    console.log('[THE state]', this.state);
+
     const MovieId = this.props.navigation.getParam('movieId');
+    this.setState({ MovieID: MovieId });
     if (this.props.navigation.getParam('typeOfContent') === 0) {
       // movie
       this.serv.getMovieDetails(MovieId).then((resp) => {
@@ -60,6 +66,7 @@ class MovieDetailScreen extends React.Component {
       let rminutes = Math.round(minutes);
       return rhours + ' hour(s) and ' + rminutes + ' minute(s)';
     };
+
     return (
       <ScrollView>
         <View>
@@ -124,4 +131,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withNavigation(MovieDetailScreen);
+const mapActionsToProps = (payload) => ({
+  actions: {
+    addMovie: bindActionCreators(addAsync, payload)
+  }
+});
+
+export default connect(
+  null,
+  mapActionsToProps
+)(withNavigation(MovieDetailScreen));
