@@ -6,18 +6,21 @@ import {
   TextInput,
   FlatList,
   ScrollView,
-  Button
+  Button, 
+  AsyncStorage
 } from "react-native";
 import { ScrollViewComponent } from "../components";
 import { connect } from "react-redux";
 import { withNavigation } from "react-navigation";
+import SearchList from "./SearchListScreen";
 
 class SearchScreen extends React.Component {
   state = {
     comedies: [],
     action: [],
     documentaries: [],
-    romance: []
+    romance: [],
+    search: ''
   };
 
   // async getMovie(idCat){
@@ -64,21 +67,30 @@ class SearchScreen extends React.Component {
       .catch(err => console.log(err));
   }
 
+  changeText(value) {
+    this.setState({ search: value });
+}
+
   search() {
-    console.log('oui');
-    this.props.tmdbService
-      .getMoviesByName('lion')
-      .then((res) => {
-        console.log(res.data);
-        
-        AsyncStorage.setItem('search')
-        .then(() => {
-            this.props.navigation.goBack();
-        })
-        .catch((err) => {
-            alert(err);
-        });
-      })
+    AsyncStorage.setItem('search', this.state.search)
+    .then(() => {      
+        this.props.navigation.navigate('SearchList');
+    })
+    .catch((err) => {
+        alert(err);
+    }); 
+      
+        // AsyncStorage.setItem('search', )
+        // .then(() => {
+        //   console.log('oui');
+
+
+          
+        //     // this.props.navigation.goBack();
+        // })
+        // .catch((err) => {
+        //     alert(err);
+        // });
   }
 
   render() {
@@ -86,7 +98,7 @@ class SearchScreen extends React.Component {
       <View style={{ marginTop: 40 }}>
         <ScrollView>
           <Text>Catégories</Text>
-          <TextInput placeholder="Entrer le nom de film"></TextInput>
+          <TextInput onChangeText={(text) => this.changeText(text)} placeholder="Entrer le nom de film"></TextInput>
           <Button title="Rechercher" onPress={() => this.search()}/>
           <View>
             <Text style={styles.categories}>Comédie :</Text>
