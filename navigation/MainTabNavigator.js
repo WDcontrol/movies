@@ -8,6 +8,7 @@ import {
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createStackNavigator } from 'react-navigation-stack';
+import SearchListScreen from '../screens/SearchListScreen';
 
 const HomeStackNavigator = createStackNavigator(
   {
@@ -33,7 +34,8 @@ const HomeStackNavigator = createStackNavigator(
 const SearchStackNavigator = createStackNavigator(
   {
     Search: SearchScreen,
-    MovieDetail: MovieDetailScreen
+    MovieDetail: MovieDetailScreen,
+    SearchList: SearchListScreen
   },
   {
     defaultNavigationOptions: {
@@ -50,6 +52,7 @@ const SearchStackNavigator = createStackNavigator(
     }
   }
 );
+
 
 const FavoriteAndWatchedStackNavigatorvigator = createStackNavigator(
   {
