@@ -66,6 +66,19 @@ class SearchScreen extends React.Component {
 
   search() {
     console.log('oui');
+    this.props.tmdbService
+      .getMoviesByName('lion')
+      .then((res) => {
+        console.log(res.data);
+        
+        AsyncStorage.setItem('search')
+        .then(() => {
+            this.props.navigation.goBack();
+        })
+        .catch((err) => {
+            alert(err);
+        });
+      })
   }
 
   render() {
