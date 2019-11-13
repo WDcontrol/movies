@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { withNavigation } from "react-navigation";
 import { connect } from "react-redux";
-import { ScrollViewComponent } from "../components";
+import { MovieFlatlistComponent } from "../components";
 
 
 class SearchListScreen extends React.Component {
@@ -47,9 +47,9 @@ class SearchListScreen extends React.Component {
                 <Text>Oui</Text>
                 <ScrollView>
 
-                    <ScrollViewComponent
+                    <MovieFlatlistComponent
                     movies={this.state.MoviesDetails}
-                    ></ScrollViewComponent>
+                    ></MovieFlatlistComponent>
 
                 </ScrollView>
             </View>
