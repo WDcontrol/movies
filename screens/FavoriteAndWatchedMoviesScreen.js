@@ -3,7 +3,6 @@ import {
   Text,
   View,
   StyleSheet,
-  TextInput,
   ScrollView,
   FlatList,
   TouchableOpacity
@@ -13,18 +12,32 @@ import { connect } from 'react-redux';
 
 class FavoriteAndWatchedMoviesScreen extends React.Component {
   render() {
-    console.log('favmovies', this.props.favorites);
+    console.log('watchmovies', this.props.watched);
     return (
       <View style={{ marginTop: 40 }}>
         <ScrollView>
-          <Text>Favories</Text>
+          <Text style={styles.categories}>Favories</Text>
           <FlatList
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             data={this.props.favorites}
             renderItem={({ item }) => (
               <View style={styles.imgContainer}>
-                {console.log('the item', item)}
+                {/* {console.log('[the item]', item)} */}
+                <TouchableOpacity>
+                  <ImgMovie imageUrl={item.poster_path}></ImgMovie>
+                </TouchableOpacity>
+              </View>
+            )}
+          />
+          <Text style={styles.categories}>A voir</Text>
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            data={this.props.watched}
+            renderItem={({ item }) => (
+              <View style={styles.imgContainer}>
+                {console.log('[the item]', item)}
                 <TouchableOpacity>
                   <ImgMovie imageUrl={item.poster_path}></ImgMovie>
                 </TouchableOpacity>
@@ -75,7 +88,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (stateStore) => {
   return {
-    favorites: stateStore.favoritesAndWatchedReducer.favorites
+    favorites: stateStore.favoritesAndWatchedReducer.favorites,
+    watched: stateStore.favoritesAndWatchedReducer.watched
   };
 };
 

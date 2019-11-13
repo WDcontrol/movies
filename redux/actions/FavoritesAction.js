@@ -30,7 +30,7 @@ export const deleteAsync = (favoritesId) => {
   return (dispatch) => {
     AsyncStorage.getItem('favorites').then((data) => {
       const tab = JSON.parse(data);
-      tab.splice(tab.findIndex((e) => e === favoritesId), 1);
+      tab.splice(tab.findIndex((e) => e.id === favoritesId), 1);
       AsyncStorage.setItem('favorites', JSON.stringify(tab)).then(() => {
         return dispatch({ type: FAVORITES_INIT, payload: JSON.parse(data) });
       });

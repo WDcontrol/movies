@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, WebView } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { ImgMovie } from '../components';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/headerButton';
@@ -8,28 +8,44 @@ import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addAsync } from '../redux/actions/FavoritesAction';
+import { addAsync, deleteAsync } from '../redux/actions/FavoritesAction';
+import {
+  addAsyncWatch,
+  deleteAsyncWatch
+} from '../redux/actions/WatchedAction';
 
 class MovieDetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let HeaderTitle = navigation.getParam('movieTitle');
     const favId = navigation.getParam('movieId');
     const favPoster = navigation.getParam('moviePoster');
+    iconname = 'ios-star-outline';
     console.log('[THE navi]', navigation);
     return {
       headerTitle: HeaderTitle,
       headerRight: (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item title='Watch' iconName='ios-eye' onPress={() => {}} />
+          <Item
+            title='Watch'
+            iconName='ios-eye'
+            onPress={() => {
+              navigation.state.params.addMovieWatch({
+                id: favId,
+                poster_path: favPoster
+              });
+              navigation.navigate('FavoriteAndToWatch');
+            }}
+          />
           <Item
             title='Favoris'
-            iconName='ios-star'
+            iconName={iconname}
             onPress={() => {
               navigation.state.params.addMovieFav({
                 id: favId,
                 poster_path: favPoster
               });
               navigation.navigate('FavoriteAndToWatch');
+              iconname = navigation.state.params.iconeButtonHandler(iconname);
             }}
           />
         </HeaderButtons>
@@ -46,9 +62,20 @@ class MovieDetailScreen extends React.Component {
   componentDidMount() {
     console.log('[THE PROPS]', this.props);
     console.log('[THE state]', this.state);
+
+    const changeButtonColor = (iconebutton) => {
+      if (iconebutton === 'ios-star-outline') iconebutton = 'ios-star';
+      else iconebutton = 'ios-star-outline';
+
+      return iconebutton;
+    };
+
     this.props.navigation.setParams({
       addMovieFav: this.props.actions.addMovieFav,
-      deleteMovieFav: this.props.actions.deleteMovieFav
+      deleteMovieFav: this.props.actions.deleteMovieFav,
+      addMovieWatch: this.props.actions.addMovieWatch,
+      deleteMovieWatch: this.props.actions.deleteMovieWatch,
+      iconeButtonHandler: changeButtonColor
     });
 
     const MovieId = this.props.navigation.getParam('movieId');
@@ -91,7 +118,6 @@ class MovieDetailScreen extends React.Component {
               <Text> Sortie 09 oct. 2019</Text>
             </View>
           </View>
-          <View style={{ width: 200, height: 300 }}></View>
           <View style={styles.description}>
             <Text style={styles.text}>
               {timeConvert(this.state.MovieDetail.runtime)}
@@ -142,7 +168,9 @@ const styles = StyleSheet.create({
 const mapActionsToProps = (payload) => ({
   actions: {
     addMovieFav: bindActionCreators(addAsync, payload),
-    deleteMovieFav: bindActionCreators(deleteAsync, payload)
+    deleteMovieFav: bindActionCreators(deleteAsync, payload),
+    addMovieWatch: bindActionCreators(addAsyncWatch, payload),
+    deleteMovieWatch: bindActionCreators(deleteAsyncWatch, payload)
   }
 });
 
