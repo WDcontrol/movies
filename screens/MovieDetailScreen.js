@@ -14,7 +14,8 @@ class MovieDetailScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let HeaderTitle = navigation.getParam('movieTitle');
     const favId = navigation.getParam('movieId');
-
+    const favPoster = navigation.getParam('moviePoster');
+    console.log('[THE navi]', navigation);
     return {
       headerTitle: HeaderTitle,
       headerRight: (
@@ -24,7 +25,10 @@ class MovieDetailScreen extends React.Component {
             title='Favoris'
             iconName='ios-star'
             onPress={() => {
-              this.props.actions.addMovie(favId);
+              navigation.state.params.addMovieFav({
+                id: favId,
+                poster_path: favPoster
+              });
               navigation.navigate('FavoriteAndToWatch');
             }}
           />
@@ -42,6 +46,10 @@ class MovieDetailScreen extends React.Component {
   componentDidMount() {
     console.log('[THE PROPS]', this.props);
     console.log('[THE state]', this.state);
+    this.props.navigation.setParams({
+      addMovieFav: this.props.actions.addMovieFav,
+      deleteMovieFav: this.props.actions.deleteMovieFav
+    });
 
     const MovieId = this.props.navigation.getParam('movieId');
     this.setState({ MovieID: MovieId });
@@ -133,7 +141,8 @@ const styles = StyleSheet.create({
 
 const mapActionsToProps = (payload) => ({
   actions: {
-    addMovie: bindActionCreators(addAsync, payload)
+    addMovieFav: bindActionCreators(addAsync, payload),
+    deleteMovieFav: bindActionCreators(deleteAsync, payload)
   }
 });
 

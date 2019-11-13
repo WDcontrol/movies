@@ -18,6 +18,7 @@ class Flatlist extends React.Component {
   onImgPress(Movie, TypeOfContent) {
     this.props.navigation.navigate('MovieDetail', {
       movieId: Movie.id,
+      moviePoster: Movie.poster_path,
       movieTitle: Movie.title || Movie.name,
       typeOfContent: TypeOfContent
     });

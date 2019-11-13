@@ -1,22 +1,46 @@
 import React from 'react';
-import { Text, View, StyleSheet, TextInput, ScrollView } from 'react-native';
-import {ScrollViewComponent} from '../components';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TextInput,
+  ScrollView,
+  FlatList,
+  TouchableOpacity
+} from 'react-native';
+import { ImgMovie } from '../components';
+import { connect } from 'react-redux';
 
 class FavoriteAndWatchedMoviesScreen extends React.Component {
   render() {
-    return(
-      <View style={{marginTop:40}}>
+    console.log('favmovies', this.props.favorites);
+    return (
+      <View style={{ marginTop: 40 }}>
         <ScrollView>
           <Text>Favories</Text>
-          <View>
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            data={this.props.favorites}
+            renderItem={({ item }) => (
+              <View style={styles.imgContainer}>
+                {console.log('the item', item)}
+                <TouchableOpacity>
+                  <ImgMovie imageUrl={item.poster_path}></ImgMovie>
+                </TouchableOpacity>
+              </View>
+            )}
+          />
+          {/* <View>
             <Text style={styles.categories}>Favories</Text>
-            <ScrollViewComponent></ScrollViewComponent>
+            <ScrollViewComponent
+              movies={this.props.favorites}></ScrollViewComponent>
             <Text style={styles.categories}>A voir</Text>
             <ScrollViewComponent></ScrollViewComponent>
-          </View>
-          </ScrollView>
-        </View>
-    )
+          </View> */}
+        </ScrollView>
+      </View>
+    );
   }
 }
 
@@ -40,7 +64,19 @@ const styles = StyleSheet.create({
     fontFamily: 'open-sans-bold',
     color: 'black',
     marginLeft: 5
+  },
+  imgContainer: {
+    height: 180,
+    width: 120,
+    marginHorizontal: 5,
+    marginVertical: 10
   }
 });
 
-export default FavoriteAndWatchedMoviesScreen;
+const mapStateToProps = (stateStore) => {
+  return {
+    favorites: stateStore.favoritesAndWatchedReducer.favorites
+  };
+};
+
+export default connect(mapStateToProps)(FavoriteAndWatchedMoviesScreen);
