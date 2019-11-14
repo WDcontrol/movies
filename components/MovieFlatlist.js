@@ -21,9 +21,7 @@ class MovieFlatlist extends React.Component {
         );
     }
 
-    render(){
-      console.log('hienhien aaaaah', this.props.movies);
-      
+    render(){      
         return(
             this.props.movies.length != 0 ?
               <FlatList

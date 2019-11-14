@@ -50,6 +50,8 @@ class MovieDetailScreen extends React.Component {
     }
   }
   render() {
+    console.log('ouiiiiiiiii', this.state.MovieDetail);
+    
     return (
       <ScrollView>
         <View>
@@ -57,13 +59,13 @@ class MovieDetailScreen extends React.Component {
             <View style={styles.imgContainer}>
               <ImgMovie imageUrl={this.state.MovieDetail.poster_path} />
             </View>
-            <View>
+            <View style={{width: 220}}>
               <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
                 {this.state.MovieDetail.title || this.state.MovieDetail.name }
               </Text>
               <Text> De todd Phillips</Text>
               <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
-              <Text> Sortie 09 oct. 2019</Text>
+              <Text>{this.state.MovieDetail.release_date}</Text>
             </View>
           </View>
           <View style={{ width: 200, height: 300 }}>
@@ -71,13 +73,12 @@ class MovieDetailScreen extends React.Component {
           </View>
           <View style={styles.description}>
             <Text style={styles.text}>
-              {this.state.MovieDetail.runtime} |
+              {this.state.MovieDetail.runtime} min. |
               {this.state.MovieDetail && this.state.MovieDetail.genres
                 ? this.state.MovieDetail.genres.map((data) => {
                     return <Text> {data.name} </Text>;
                   })
                 : null}
-              | Canada, U.S.A
             </Text>
             <Text style={styles.text}>{this.state.MovieDetail.overview}</Text>
             <Text
@@ -86,7 +87,7 @@ class MovieDetailScreen extends React.Component {
                 alignSelf: 'center',
                 marginTop: 10
               }}>
-              Note : 8/10
+              Note : {this.state.MovieDetail.vote_average}/10
             </Text>
           </View>
         </View>
@@ -99,7 +100,8 @@ const styles = StyleSheet.create({
   imgContainer: {
     width: 90,
     height: 120,
-    marginTop: 30
+    marginTop: 30,
+    marginRight: 10
   },
   detailContainer: {
     flexDirection: 'row',
