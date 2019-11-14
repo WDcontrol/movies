@@ -37,7 +37,7 @@ class Flatlist extends React.Component {
                   </View>
               )} />
             :
-            <Text>No data</Text>
+            <Text>Chargement ...</Text>
         )
     }
 }

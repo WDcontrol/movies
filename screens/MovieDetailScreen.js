@@ -6,6 +6,7 @@ import HeaderButton from '../components/headerButton';
 import TMBService from '../services/tmdb-service';
 import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
+import * as SMS from 'expo-sms';
 
 class MovieDetailScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
