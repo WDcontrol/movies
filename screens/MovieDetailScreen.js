@@ -84,11 +84,7 @@ class MovieDetailScreen extends React.Component {
           <View style={{ width: 200, height: 300 }}></View>
           <View style={styles.description}>
             <Text style={styles.text}>
-<<<<<<< HEAD
               {timeConvert(this.state.MovieDetail.runtime)}
-=======
-              {this.state.MovieDetail.runtime} min. |
->>>>>>> c9274befe19f156428b04661c16ff9be8cb47abe
               {this.state.MovieDetail && this.state.MovieDetail.genres
                 ? this.state.MovieDetail.genres.map((data) => {
                     return <Text>| {data.name} </Text>;
