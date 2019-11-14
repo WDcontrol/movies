@@ -142,7 +142,9 @@ class MovieDetailScreen extends React.Component {
               </Text>
               <Text> De todd Phillips</Text>
               <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
-              <Text> Sortie 09 oct. 2019</Text>
+              <Text>
+                date de sortie : {this.state.MovieDetail.release_date}
+              </Text>
             </View>
           </View>
           <View style={styles.description}>
@@ -161,7 +163,7 @@ class MovieDetailScreen extends React.Component {
                 alignSelf: 'center',
                 marginTop: 10
               }}>
-              Note : 8/10
+              Note : {this.state.MovieDetail.vote_average}/10
             </Text>
           </View>
         </View>
