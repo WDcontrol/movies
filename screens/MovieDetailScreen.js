@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, WebView } from 'react-native';
+import { StyleSheet, View, Text, WebView, Button } from 'react-native';
 import { ImgMovie } from '../components';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/headerButton';
@@ -7,6 +7,7 @@ import TMBService from '../services/tmdb-service';
 import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as SMS from 'expo-sms';
+import ContactsScreen from './ContactsScreen';
 
 class MovieDetailScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
@@ -51,7 +52,6 @@ class MovieDetailScreen extends React.Component {
     }
   }
   render() {
-    console.log('ouiiiiiiiii', this.state.MovieDetail);
     
     return (
       <ScrollView>
@@ -92,6 +92,9 @@ class MovieDetailScreen extends React.Component {
             </Text>
           </View>
         </View>
+
+              <Button title='Contacts' onPress={() => this.props.navigation.navigate('Contacts')}></Button>
+
       </ScrollView>
     );
   }

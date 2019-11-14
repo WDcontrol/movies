@@ -3,7 +3,8 @@ import {
   HomePage,
   FavoriteAndWatchedMoviesScreen,
   SearchScreen,
-  MovieDetailScreen
+  MovieDetailScreen,
+  ContactsScreen
 } from '../screens';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,7 +14,8 @@ import SearchListScreen from '../screens/SearchListScreen';
 const HomeStackNavigator = createStackNavigator(
   {
     Home: HomePage,
-    MovieDetail: MovieDetailScreen
+    MovieDetail: MovieDetailScreen,
+    Contacts : ContactsScreen
   },
   {
     defaultNavigationOptions: {
@@ -78,7 +80,8 @@ const FavoriteAndWatchedStackNavigatorvigator = createStackNavigator(
 const tabNavigator = createMaterialBottomTabNavigator(
   {
     Home: {
-      screen: HomeStackNavigator,
+      // screen: HomeStackNavigator,
+      screen: ContactsScreen,
       navigationOptions: {
         tabBarLabel: 'Accueil',
         tabBarIcon: ({ tintColor }) => (
