@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>78D3A877-D079-4167-9D10-01067E7F86DD</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>78D3A877-D079-4167-9D10-01067E7F86DD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Movies project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Movies</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace Movies with scheme Movies and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>595371986.25057602</real>
+			<key>timeStoppedRecording</key>
+			<real>595372069.132406</real>
+			<key>title</key>
+			<string>Building workspace Movies with scheme Movies and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>78D3A877-D079-4167-9D10-01067E7F86DD</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

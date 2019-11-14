@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
 import { ScrollViewComponent } from "../components";
 import { connect } from "react-redux";
 import { withNavigation } from "react-navigation";
-
+import ContactsWrapper from 'react-native-contacts-wrapper';
 class HomePage extends React.Component {
   state = {
     topRatedMovies: [],

@@ -11,21 +11,50 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		A08F796A237CB4EB00C0873B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7969237CB4EB00C0873B /* libReact.a */; };
+		A08F796D237CB50100C0873B /* libPods-Movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F796C237CB50100C0873B /* libPods-Movies.a */; };
+		A08F796F237CB50F00C0873B /* libRNScreens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F796E237CB50F00C0873B /* libRNScreens.a */; };
+		A08F7986237CB52100C0873B /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7970237CB52100C0873B /* libDoubleConversion.a */; };
+		A08F7987237CB52100C0873B /* libEXAppLoaderProvider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7971237CB52100C0873B /* libEXAppLoaderProvider.a */; };
+		A08F7988237CB52100C0873B /* libEXAV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7972237CB52100C0873B /* libEXAV.a */; };
+		A08F7989237CB52100C0873B /* libEXConstants.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7973237CB52100C0873B /* libEXConstants.a */; };
+		A08F798A237CB52100C0873B /* libEXFileSystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7974237CB52100C0873B /* libEXFileSystem.a */; };
+		A08F798B237CB52100C0873B /* libEXFont.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7975237CB52100C0873B /* libEXFont.a */; };
+		A08F798C237CB52100C0873B /* libEXKeepAwake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7976237CB52100C0873B /* libEXKeepAwake.a */; };
+		A08F798D237CB52100C0873B /* libEXLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7977237CB52100C0873B /* libEXLinearGradient.a */; };
+		A08F798E237CB52100C0873B /* libEXLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7978237CB52100C0873B /* libEXLocation.a */; };
+		A08F798F237CB52100C0873B /* libEXPermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7979237CB52100C0873B /* libEXPermissions.a */; };
+		A08F7990237CB52100C0873B /* libEXSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F797A237CB52100C0873B /* libEXSQLite.a */; };
+		A08F7991237CB52100C0873B /* libEXWebBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F797B237CB52100C0873B /* libEXWebBrowser.a */; };
+		A08F7992237CB52100C0873B /* libFolly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F797C237CB52100C0873B /* libFolly.a */; };
+		A08F7993237CB52100C0873B /* libglog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F797D237CB52100C0873B /* libglog.a */; };
+		A08F7994237CB52100C0873B /* libPods-Movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F797E237CB52100C0873B /* libPods-Movies.a */; };
+		A08F7995237CB52100C0873B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F797F237CB52100C0873B /* libReact.a */; };
+		A08F7996237CB52100C0873B /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7980237CB52100C0873B /* libRNGestureHandler.a */; };
+		A08F7997237CB52100C0873B /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7981237CB52100C0873B /* libRNReanimated.a */; };
+		A08F7998237CB52100C0873B /* libRNScreens.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7982237CB52100C0873B /* libRNScreens.a */; };
+		A08F7999237CB52100C0873B /* libUMCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7983237CB52100C0873B /* libUMCore.a */; };
+		A08F799A237CB52100C0873B /* libUMReactNativeAdapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7984237CB52100C0873B /* libUMReactNativeAdapter.a */; };
+		A08F799B237CB52100C0873B /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A08F7985237CB52100C0873B /* libyoga.a */; };
+		A0D95896237CB031003B44B5 /* libRCTContactsWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D95893237CAEFF003B44B5 /* libRCTContactsWrapper.a */; };
+		A0D95898237CB10F003B44B5 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D95897237CB10F003B44B5 /* libReact.a */; };
+		CD1731E67959D0D9C579DE91 /* libPods-Movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849CECC7936F3E52A7F88FFF /* libPods-Movies.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+		A0D95892237CAEFF003B44B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Movies;
+			containerPortal = A0D9588E237CAEFF003B44B5 /* ContactsWrapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B58405A1D10DE8700235F31;
+			remoteInfo = RCTContactsWrapper;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BBB990C507EF0CAA201334 /* Pods-Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.release.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.release.xcconfig"; sourceTree = "<group>"; };
+		0E34D3E147628EC48E935ED4 /* Pods-Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies.debug.xcconfig"; path = "Target Support Files/Pods-Movies/Pods-Movies.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Movies/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Movies/AppDelegate.m; sourceTree = "<group>"; };
@@ -34,36 +63,77 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Movies/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Movies/main.m; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		849CECC7936F3E52A7F88FFF /* libPods-Movies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Movies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7969237CB4EB00C0873B /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F796C237CB50100C0873B /* libPods-Movies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-Movies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F796E237CB50F00C0873B /* libRNScreens.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNScreens.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7970237CB52100C0873B /* libDoubleConversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7971237CB52100C0873B /* libEXAppLoaderProvider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXAppLoaderProvider.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7972237CB52100C0873B /* libEXAV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXAV.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7973237CB52100C0873B /* libEXConstants.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXConstants.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7974237CB52100C0873B /* libEXFileSystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXFileSystem.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7975237CB52100C0873B /* libEXFont.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXFont.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7976237CB52100C0873B /* libEXKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXKeepAwake.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7977237CB52100C0873B /* libEXLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXLinearGradient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7978237CB52100C0873B /* libEXLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXLocation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7979237CB52100C0873B /* libEXPermissions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXPermissions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F797A237CB52100C0873B /* libEXSQLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXSQLite.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F797B237CB52100C0873B /* libEXWebBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEXWebBrowser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F797C237CB52100C0873B /* libFolly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFolly.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F797D237CB52100C0873B /* libglog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libglog.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F797E237CB52100C0873B /* libPods-Movies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-Movies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F797F237CB52100C0873B /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7980237CB52100C0873B /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7981237CB52100C0873B /* libRNReanimated.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReanimated.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7982237CB52100C0873B /* libRNScreens.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNScreens.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7983237CB52100C0873B /* libUMCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libUMCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7984237CB52100C0873B /* libUMReactNativeAdapter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libUMReactNativeAdapter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08F7985237CB52100C0873B /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D9588E237CAEFF003B44B5 /* ContactsWrapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ContactsWrapper.xcodeproj; path = "../node_modules/react-native-contacts-wrapper/ios/ContactsWrapper.xcodeproj"; sourceTree = "<group>"; };
+		A0D95897237CB10F003B44B5 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00E356EB1AD99517003FC87E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08F7992237CB52100C0873B /* libFolly.a in Frameworks */,
+				A0D95896237CB031003B44B5 /* libRCTContactsWrapper.a in Frameworks */,
+				A08F798F237CB52100C0873B /* libEXPermissions.a in Frameworks */,
+				A08F799B237CB52100C0873B /* libyoga.a in Frameworks */,
+				A08F798B237CB52100C0873B /* libEXFont.a in Frameworks */,
+				A08F7998237CB52100C0873B /* libRNScreens.a in Frameworks */,
+				A08F798E237CB52100C0873B /* libEXLocation.a in Frameworks */,
+				A08F7986237CB52100C0873B /* libDoubleConversion.a in Frameworks */,
+				A08F798C237CB52100C0873B /* libEXKeepAwake.a in Frameworks */,
+				A08F7990237CB52100C0873B /* libEXSQLite.a in Frameworks */,
+				A08F7988237CB52100C0873B /* libEXAV.a in Frameworks */,
+				A08F798D237CB52100C0873B /* libEXLinearGradient.a in Frameworks */,
+				A0D95898237CB10F003B44B5 /* libReact.a in Frameworks */,
+				A08F7989237CB52100C0873B /* libEXConstants.a in Frameworks */,
+				CD1731E67959D0D9C579DE91 /* libPods-Movies.a in Frameworks */,
+				A08F7999237CB52100C0873B /* libUMCore.a in Frameworks */,
+				A08F796D237CB50100C0873B /* libPods-Movies.a in Frameworks */,
+				A08F796A237CB4EB00C0873B /* libReact.a in Frameworks */,
+				A08F7991237CB52100C0873B /* libEXWebBrowser.a in Frameworks */,
+				A08F7993237CB52100C0873B /* libglog.a in Frameworks */,
+				A08F7997237CB52100C0873B /* libRNReanimated.a in Frameworks */,
+				A08F798A237CB52100C0873B /* libEXFileSystem.a in Frameworks */,
+				A08F7996237CB52100C0873B /* libRNGestureHandler.a in Frameworks */,
+				A08F7987237CB52100C0873B /* libEXAppLoaderProvider.a in Frameworks */,
+				A08F799A237CB52100C0873B /* libUMReactNativeAdapter.a in Frameworks */,
+				A08F796F237CB50F00C0873B /* libRNScreens.a in Frameworks */,
+				A08F7994237CB52100C0873B /* libPods-Movies.a in Frameworks */,
+				A08F7995237CB52100C0873B /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356F01AD99517003FC87E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				00E356F11AD99517003FC87E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* Movies */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +151,48 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A08F7970237CB52100C0873B /* libDoubleConversion.a */,
+				A08F7971237CB52100C0873B /* libEXAppLoaderProvider.a */,
+				A08F7972237CB52100C0873B /* libEXAV.a */,
+				A08F7973237CB52100C0873B /* libEXConstants.a */,
+				A08F7974237CB52100C0873B /* libEXFileSystem.a */,
+				A08F7975237CB52100C0873B /* libEXFont.a */,
+				A08F7976237CB52100C0873B /* libEXKeepAwake.a */,
+				A08F7977237CB52100C0873B /* libEXLinearGradient.a */,
+				A08F7978237CB52100C0873B /* libEXLocation.a */,
+				A08F7979237CB52100C0873B /* libEXPermissions.a */,
+				A08F797A237CB52100C0873B /* libEXSQLite.a */,
+				A08F797B237CB52100C0873B /* libEXWebBrowser.a */,
+				A08F797C237CB52100C0873B /* libFolly.a */,
+				A08F797D237CB52100C0873B /* libglog.a */,
+				A08F797E237CB52100C0873B /* libPods-Movies.a */,
+				A08F797F237CB52100C0873B /* libReact.a */,
+				A08F7980237CB52100C0873B /* libRNGestureHandler.a */,
+				A08F7981237CB52100C0873B /* libRNReanimated.a */,
+				A08F7982237CB52100C0873B /* libRNScreens.a */,
+				A08F7983237CB52100C0873B /* libUMCore.a */,
+				A08F7984237CB52100C0873B /* libUMReactNativeAdapter.a */,
+				A08F7985237CB52100C0873B /* libyoga.a */,
+				A08F796E237CB50F00C0873B /* libRNScreens.a */,
+				A08F796C237CB50100C0873B /* libPods-Movies.a */,
+				A08F7969237CB4EB00C0873B /* libReact.a */,
+				A0D95897237CB10F003B44B5 /* libReact.a */,
+				A0D9588E237CAEFF003B44B5 /* ContactsWrapper.xcodeproj */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				849CECC7936F3E52A7F88FFF /* libPods-Movies.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7797246E943489F7C1868FCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E34D3E147628EC48E935ED4 /* Pods-Movies.debug.xcconfig */,
+				03BBB990C507EF0CAA201334 /* Pods-Movies.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -102,6 +209,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				7797246E943489F7C1868FCA /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -116,6 +224,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A0D9588F237CAEFF003B44B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0D95893237CAEFF003B44B5 /* libRCTContactsWrapper.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +239,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Movies" */;
 			buildPhases = (
+				D2D91B64FA1A46D15284AA1F /* [CP] Check Pods Manifest.lock */,
 				FD4C38642228810C00325AF5 /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -146,24 +263,25 @@
 			attributes = {
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Facebook;
-				TargetAttributes = {
-					00E356ED1AD99517003FC87E = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 13B07F861A680F5B00A75B9A;
-					};
-				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Movies" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A0D9588F237CAEFF003B44B5 /* Products */;
+					ProjectRef = A0D9588E237CAEFF003B44B5 /* ContactsWrapper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Movies */,
@@ -171,14 +289,17 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		00E356EC1AD99517003FC87E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXReferenceProxy section */
+		A0D95893237CAEFF003B44B5 /* libRCTContactsWrapper.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTContactsWrapper.a;
+			remoteRef = A0D95892237CAEFF003B44B5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +326,28 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		D2D91B64FA1A46D15284AA1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Movies-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD4C38642228810C00325AF5 /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,13 +370,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00E356EA1AD99517003FC87E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,14 +380,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Movies */;
-			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
@@ -266,53 +394,14 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		00E356F61AD99517003FC87E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MoviesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movies.app/Movies";
-			};
-			name = Debug;
-		};
-		00E356F71AD99517003FC87E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = MoviesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movies.app/Movies";
-			};
-			name = Release;
-		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E34D3E147628EC48E935ED4 /* Pods-Movies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Movies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -328,9 +417,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03BBB990C507EF0CAA201334 /* Pods-Movies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Movies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -446,15 +537,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoviesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				00E356F61AD99517003FC87E /* Debug */,
-				00E356F71AD99517003FC87E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Movies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

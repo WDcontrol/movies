@@ -1,0 +1,33 @@
+dependencies: \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingProxyRootView.mm \
+  /Users/jerome.celebi/Documents/Movies/ios/Pods/Target\ Support\ Files/React/React-prefix.pch \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingProxyRootView.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingView.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/RCTSurfaceDelegate.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/RCTSurfaceStage.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceSizeMeasureMode.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTRootContentView.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Views/RCTView.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/RCTRootViewDelegate.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Base/Surface/RCTSurface.h \
+  /Users/jerome.celebi/Documents/Movies/node_modules/react-native/React/Views/UIView+React.h \
+  /Users/jerome.celebi/Documents/Movies/ios/Pods/Headers/Private/yoga/YGEnums.h \
+  /Users/jerome.celebi/Documents/Movies/ios/Pods/Headers/Private/yoga/YGMacros.h
