@@ -74,12 +74,12 @@ class SearchScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ marginTop: 40 }}>
-        <ScrollView>
-          <Text>Catégories</Text>
-          <TextInput onChangeText={(text) => this.changeText(text)} placeholder="Entrer le nom de film"></TextInput>
-          <Button style={{width : 10}} title="Rechercher" onPress={() => this.search()}/>
-          <View>
+      <View style={{ marginTop: 0 }}>
+      <ScrollView>
+        <Text style={{marginLeft: 20, fontSize: 20, marginBottom: 10}}>Catégories</Text>
+        <TextInput onChangeText={(text) => this.changeText(text)} placeholder="Entrer le nom de film"></TextInput>
+        <Button title="Rechercher" onPress={() => this.search()}/>
+        <View style={{marginTop: 10}}>
             <Text style={styles.categories}>Comédie :</Text>
             <ScrollViewComponent
               movies={this.state.comedies}
