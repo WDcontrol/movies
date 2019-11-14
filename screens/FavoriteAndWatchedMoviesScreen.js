@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Text,
   View,
@@ -6,13 +6,12 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity
-} from 'react-native';
-import { ImgMovie } from '../components';
-import { connect } from 'react-redux';
+} from "react-native";
+import { ImgMovie } from "../components";
+import { connect } from "react-redux";
 
 class FavoriteAndWatchedMoviesScreen extends React.Component {
   render() {
-    console.log('watchmovies', this.props.watched);
     return (
       <View style={{ marginTop: 40 }}>
         <ScrollView>
@@ -37,7 +36,7 @@ class FavoriteAndWatchedMoviesScreen extends React.Component {
             data={this.props.watched}
             renderItem={({ item }) => (
               <View style={styles.imgContainer}>
-                {console.log('[the item]', item)}
+                {/* {console.log("[the item]", item)} */}
                 <TouchableOpacity>
                   <ImgMovie imageUrl={item.poster_path}></ImgMovie>
                 </TouchableOpacity>
@@ -60,22 +59,22 @@ class FavoriteAndWatchedMoviesScreen extends React.Component {
 const styles = StyleSheet.create({
   logo: {
     height: 200,
-    width: '50%',
-    backgroundColor: 'black',
-    marginLeft: '25%',
+    width: "50%",
+    backgroundColor: "black",
+    marginLeft: "25%",
     marginVertical: 50,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center"
   },
   textLogo: {
-    fontFamily: 'open-sans',
-    color: 'white',
+    fontFamily: "open-sans",
+    color: "white",
     fontSize: 20
   },
   categories: {
     fontSize: 20,
-    fontFamily: 'open-sans-bold',
-    color: 'black',
+    fontFamily: "open-sans-bold",
+    color: "black",
     marginLeft: 5
   },
   imgContainer: {
@@ -86,10 +85,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (stateStore) => {
+const mapStateToProps = stateStore => {
   return {
     favorites: stateStore.favoritesAndWatchedReducer.favorites,
-    watched: stateStore.favoritesAndWatchedReducer.watched
+    watched: stateStore.watchedReducer.watched
   };
 };
 
