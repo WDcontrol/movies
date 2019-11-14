@@ -1,5 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
+import { withNavigation } from 'react-navigation';
+import { ImgMovie } from '../components';
+import { connect } from 'react-redux';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class MovieFlatlist extends React.Component {
     static defaultProps = {
@@ -18,18 +22,28 @@ class MovieFlatlist extends React.Component {
     }
 
     render(){
+      console.log('hienhien aaaaah', this.props.movies);
+      
         return(
             this.props.movies.length != 0 ?
               <FlatList
-              horizontal={false}
-              showsHorizontalScrollIndicator={false}
               data={this.props.movies.results}
               renderItem={({item}) => (
-                  <View style={styles.imgContainer}>
-                      <TouchableOpacity onPress={() => this.onImgPress(item,this.props.typeOfContent)}>
-                          <ImgMovie imageUrl={item.poster_path}></ImgMovie>
-                      </TouchableOpacity>
+                <TouchableOpacity style={styles.img} onPress={() => this.onImgPress(item,this.props.typeOfContent)}>
+
+                  <View style={styles.movieContainer}>
+                    <View style={styles.imgCont}>
+                      <ImgMovie imageUrl={item.poster_path}></ImgMovie>
+                      </View>
+                      <View style={styles.details}>
+                            <Text style={styles.textMovie}>{item.title}</Text>
+                            <Text style={styles.textMovie}>{item.release_date}</Text>
+                            <Text style={styles.textMovie}>Note : {item.vote_average}/10</Text>
+                            <Text style={styles.textMovie}>Votes : {item.vote_count}</Text>
+                      </View>
                   </View>
+                  </TouchableOpacity>
+
               )} />
             :
             <Text>No data</Text>
@@ -38,14 +52,24 @@ class MovieFlatlist extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    categoryContainer: {
-      justifyContent: 'space-between'
+    movieContainer: {
+      height: 180,
+      width: 350,
+      marginHorizontal: 5,
+      marginVertical: 10,
+      flexDirection:'row'
     },
-    imgContainer: {
+    textMovie : {
+      fontSize: 20
+    },
+    imgCont: {
       height: 180,
       width: 120,
-      marginHorizontal: 5,
-      marginVertical: 10
+      marginRight: 10
+    },
+    details: {
+      width: 250,
+      lineHeight: 50
     }
   });
   
@@ -55,4 +79,4 @@ const styles = StyleSheet.create({
     };
   };
   
-  export default withNavigation(connect(mapStateToProps)(Flatlist));
+  export default withNavigation(connect(mapStateToProps)(MovieFlatlist));
