@@ -21,18 +21,13 @@ class SearchListScreen extends React.Component {
       };
 
     componentDidMount() {
-        console.log('oui');
 
 
         AsyncStorage.getItem('search').then(data => {
-            // console.log(data);
             this.props.tmdbService
             .getMoviesByName(data)
-            .then(res => {
-                // console.log('ressssssssssssssss', res);
-                
+            .then(res => {                
               this.setState({ MoviesDetails: res.data });
-              console.log('ah ouias ', this.state.MoviesDetails);
               
             })
             .catch(err => console.log(err));
@@ -44,7 +39,6 @@ class SearchListScreen extends React.Component {
 
         return (
             <View>
-                <Text>Oui</Text>
                 <ScrollView>
 
                     <MovieFlatlistComponent
@@ -55,14 +49,6 @@ class SearchListScreen extends React.Component {
             </View>
         );
     }
-//     this.props.tmdbService
-// .getMoviesByName('lion')
-// .then((res) => {
-//   console.log(res.data.results[0]);
-  
-
-
-// })
 }
 
 const mapStateToProps = stateStore => {

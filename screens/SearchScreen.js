@@ -7,7 +7,8 @@ import {
   FlatList,
   ScrollView,
   Button, 
-  AsyncStorage
+  AsyncStorage,
+  
 } from "react-native";
 import { ScrollViewComponent } from "../components";
 import { connect } from "react-redux";
@@ -22,16 +23,6 @@ class SearchScreen extends React.Component {
     romance: [],
     search: ''
   };
-
-  // async getMovie(idCat){
-  //   console.log('oui');
-
-  //   this.tmdb.getMoviesByCategories(idCat).then( (element) => {
-
-  //     console.log('element', element.data);
-  //   })
-
-  // }
 
   componentDidMount() {
     //Comédies
@@ -79,18 +70,6 @@ class SearchScreen extends React.Component {
     .catch((err) => {
         alert(err);
     }); 
-      
-        // AsyncStorage.setItem('search', )
-        // .then(() => {
-        //   console.log('oui');
-
-
-          
-        //     // this.props.navigation.goBack();
-        // })
-        // .catch((err) => {
-        //     alert(err);
-        // });
   }
 
   render() {
@@ -99,7 +78,7 @@ class SearchScreen extends React.Component {
         <ScrollView>
           <Text>Catégories</Text>
           <TextInput onChangeText={(text) => this.changeText(text)} placeholder="Entrer le nom de film"></TextInput>
-          <Button title="Rechercher" onPress={() => this.search()}/>
+          <Button style={{width : 10}} title="Rechercher" onPress={() => this.search()}/>
           <View>
             <Text style={styles.categories}>Comédie :</Text>
             <ScrollViewComponent

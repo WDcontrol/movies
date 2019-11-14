@@ -29,17 +29,21 @@ class MovieFlatlist extends React.Component {
               <FlatList
               data={this.props.movies.results}
               renderItem={({item}) => (
+                <TouchableOpacity style={styles.img} onPress={() => this.onImgPress(item,this.props.typeOfContent)}>
+
                   <View style={styles.movieContainer}>
-                      <TouchableOpacity style={styles.img} onPress={() => this.onImgPress(item,this.props.typeOfContent)}>
+                    <View style={styles.imgCont}>
                       <ImgMovie imageUrl={item.poster_path}></ImgMovie>
-                          <View style={styles.details}>
-                            <Text style={{backgroundColor:'green'}}>{item.title}</Text>
-                            <Text style={{backgroundColor:'blue'}}>{item.release_date}</Text>
-                            <Text style={{backgroundColor:'red'}}>{item.vote_average}</Text>
-                            <Text style={{backgroundColor:'purple'}}>{item.vote_count}</Text>
-                          </View>
-                      </TouchableOpacity>
+                      </View>
+                      <View style={styles.details}>
+                            <Text style={styles.textMovie}>{item.title}</Text>
+                            <Text style={styles.textMovie}>{item.release_date}</Text>
+                            <Text style={styles.textMovie}>Note : {item.vote_average}/10</Text>
+                            <Text style={styles.textMovie}>Votes : {item.vote_count}</Text>
+                      </View>
                   </View>
+                  </TouchableOpacity>
+
               )} />
             :
             <Text>No data</Text>
@@ -49,20 +53,23 @@ class MovieFlatlist extends React.Component {
 
 const styles = StyleSheet.create({
     movieContainer: {
-      backgroundColor:'pink',
       height: 180,
       width: 350,
       marginHorizontal: 5,
       marginVertical: 10,
-      flexDirection:'row',
-      justifyContent: 'space-between'
+      flexDirection:'row'
     },
-    img: {
+    textMovie : {
+      fontSize: 20
+    },
+    imgCont: {
       height: 180,
-      width: 120
+      width: 120,
+      marginRight: 10
     },
     details: {
-      width: 50
+      width: 250,
+      lineHeight: 50
     }
   });
   
