@@ -62,9 +62,7 @@ class HomePage extends React.Component {
     return (
       <View>
         <ScrollView>
-          <View style={styles.logo}>
-            <Text style={styles.textLogo}>LOGO</Text>
-          </View>
+
           <View>
             <Text style={styles.categories}>Films les mieux notés</Text>
             <ScrollViewComponent
