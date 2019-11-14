@@ -8,28 +8,70 @@ import { withNavigation } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as SMS from 'expo-sms';
 import ContactsScreen from './ContactsScreen';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addAsync, deleteAsync } from '../redux/actions/FavoritesAction';
+
 
 class MovieDetailScreen extends React.Component {
-  static navigationOptions = ({navigation}) => {
-    var HeaderTitle = navigation.getParam('movieTitle')
+  static navigationOptions = ({ navigation }) => {
+    let HeaderTitle = navigation.getParam('movieTitle');
+    const favId = navigation.getParam('movieId');
+    const favPoster = navigation.getParam('moviePoster');
+    const watched = navigation.state.params.watched;
+    const favorites = navigation.state.params.favorites;
+    // console.log("nav", navigation);
+
+    let isInWatchedReducer =
+      watched != undefined ? watched.find((obj) => obj.id == favId) : false;
+    let isInFavoritesReducer =
+      favorites != undefined ? favorites.find((obj) => obj.id == favId) : false;
     return {
       headerTitle: HeaderTitle,
       headerRight: (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title='Watch'
-            iconName='ios-eye'
-            onPress={() => {
-              console.log('Ajouter a la liste de film à voir');
-            }}
-          />
-          <Item
-            title='Favoris'
-            iconName='ios-star'
-            onPress={() => {
-              console.log('ajouter au fav');
-            }}
-          />
+          {!isInWatchedReducer ? (
+            <Item
+              title='Watch'
+              iconName='ios-eye'
+              onPress={() => {
+                navigation.state.params.addMovieWatch({
+                  id: favId,
+                  poster_path: favPoster
+                });
+                navigation.navigate('FavoriteAndToWatch');
+              }}
+            />
+          ) : (
+            <Item
+              title='Watch'
+              iconName='ios-eye-off'
+              onPress={() => {
+                navigation.state.params.deleteMovieWatch(favId);
+                navigation.navigate('FavoriteAndToWatch');
+              }}></Item>
+          )}
+          {!isInFavoritesReducer ? (
+            <Item
+              title='Favorite'
+              iconName='ios-star-outline'
+              onPress={() => {
+                navigation.state.params.addMovieFav({
+                  id: favId,
+                  poster_path: favPoster
+                });
+                navigation.navigate('FavoriteAndToWatch');
+              }}
+            />
+          ) : (
+            <Item
+              title='Favorite'
+              iconName='ios-star'
+              onPress={() => {
+                navigation.state.params.deleteMovieFav(favId);
+                navigation.navigate('FavoriteAndToWatch');
+              }}></Item>
+          )}
         </HeaderButtons>
       )
     };
@@ -37,22 +79,55 @@ class MovieDetailScreen extends React.Component {
 
   serv = new TMBService();
   state = {
-    MovieDetail: []
+    MovieDetail: [],
+    MovieID: null
   };
+
   componentDidMount() {
+    const changeButtonColor = (iconebutton) => {
+      if (iconebutton === 'ios-star-outline') iconebutton = 'ios-star';
+      else iconebutton = 'ios-star-outline';
+
+      return iconebutton;
+    };
+
+    this.props.navigation.setParams({
+      addMovieFav: this.props.actions.addMovieFav,
+      deleteMovieFav: this.props.actions.deleteMovieFav,
+      addMovieWatch: this.props.actions.addMovieWatch,
+      deleteMovieWatch: this.props.actions.deleteMovieWatch,
+      iconeButtonHandler: changeButtonColor,
+      favorites: this.props.favorites,
+      watched: this.props.watched
+    });
+
     const MovieId = this.props.navigation.getParam('movieId');
-    if(this.props.navigation.getParam('typeOfContent') === 0){  // movie
+    this.setState({ MovieID: MovieId });
+    if (this.props.navigation.getParam('typeOfContent') === 0) {
+      // movie
       this.serv.getMovieDetails(MovieId).then((resp) => {
         this.setState({ MovieDetail: resp.data });
       });
-    }else{
-        this.serv.getTVDetails(MovieId).then((resp) => { // tv show
-          this.setState({ MovieDetail: resp.data });
-        });
+    } else {
+      this.serv.getTVDetails(MovieId).then((resp) => {
+        // tv show
+        this.setState({ MovieDetail: resp.data });
+      });
     }
   }
   render() {
-    
+    const timeConvert = (n) => {
+      let num = n;
+      let hours = num / 60;
+      let rhours = Math.floor(hours);
+      let minutes = (hours - rhours) * 60;
+      let rminutes = Math.round(minutes);
+      return rhours + ' hour(s) and ' + rminutes + ' minute(s)';
+    };
+    //console.log('detail,', this.state.MovieDetail);
+    // console.log("watched", this.props.watched);
+    // console.log("favorites", this.props.favorites);
+
     return (
       <ScrollView>
         <View>
@@ -60,24 +135,40 @@ class MovieDetailScreen extends React.Component {
             <View style={styles.imgContainer}>
               <ImgMovie imageUrl={this.state.MovieDetail.poster_path} />
             </View>
-            <View style={{width: 220}}>
-              <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
-                {this.state.MovieDetail.title || this.state.MovieDetail.name }
+            <View style={{ width: 250 }}>
+              <Text
+                style={{
+                  fontFamily: 'open-sans-bold',
+                  fontSize: 18,
+                  marginBottom: 5
+                }}>
+                {this.state.MovieDetail.title || this.state.MovieDetail.name}
               </Text>
-              <Text> De todd Phillips</Text>
-              <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
-              <Text>{this.state.MovieDetail.release_date}</Text>
+
+              {/* <Text> Avec  </Text> */}
+              <View style={styles.detailcontainer}>
+                <Text>
+                  Avec:
+                  {this.state.MovieDetail.credits
+                    ? this.state.MovieDetail.credits.cast
+                        .slice(0, 5)
+                        .map((i) => {
+                          return <Text>{i.name} </Text>;
+                        })
+                    : null}
+                </Text>
+              </View>
+              <Text>
+                date de sortie : {this.state.MovieDetail.release_date}
+              </Text>
             </View>
-          </View>
-          <View style={{ width: 200, height: 300 }}>
-          
           </View>
           <View style={styles.description}>
             <Text style={styles.text}>
-              {this.state.MovieDetail.runtime} min. |
+              {timeConvert(this.state.MovieDetail.runtime)}
               {this.state.MovieDetail && this.state.MovieDetail.genres
                 ? this.state.MovieDetail.genres.map((data) => {
-                    return <Text> {data.name} </Text>;
+                    return <Text>| {data.name} </Text>;
                   })
                 : null}
             </Text>
@@ -103,10 +194,16 @@ class MovieDetailScreen extends React.Component {
 const styles = StyleSheet.create({
   imgContainer: {
     width: 90,
-    height: 120,
+    height: 150,
     marginTop: 30,
-    marginRight: 10
+    marginRight: 15
   },
+  detailcontainer: {
+    marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+
   detailContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -119,8 +216,28 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 12,
-    fontFamily: 'open-sans'
+    fontFamily: 'open-sans',
+    fontSize: 14
   }
 });
 
-export default withNavigation(MovieDetailScreen);
+const mapActionsToProps = (payload) => ({
+  actions: {
+    addMovieFav: bindActionCreators(addAsync, payload),
+    deleteMovieFav: bindActionCreators(deleteAsync, payload),
+    addMovieWatch: bindActionCreators(addAsyncWatch, payload),
+    deleteMovieWatch: bindActionCreators(deleteAsyncWatch, payload)
+  }
+});
+
+const mapStateToProps = (stateStore) => {
+  return {
+    favorites: stateStore.favoritesAndWatchedReducer.favorites,
+    watched: stateStore.watchedReducer.watched
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withNavigation(MovieDetailScreen));

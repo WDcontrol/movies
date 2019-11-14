@@ -3,24 +3,26 @@ import { View, StyleSheet, FlatList, Text } from 'react-native';
 import { ImgMovie } from '../components';
 import { connect } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { withNavigation } from 'react-navigation'
+import { withNavigation } from 'react-navigation';
 
 class Flatlist extends React.Component {
+  static defaultProps = {
+    movies: []
+  };
 
-    static defaultProps = {
-        movies: [],
-        typeOfContent: 0, // film
-    };
+  static defaultProps = {
+    movies: [],
+    typeOfContent: 0 // film
+  };
 
-    onImgPress(Movie,TypeOfContent){
-        this.props.navigation.navigate('MovieDetail',
-            {
-                movieId:Movie.id,
-                movieTitle:Movie.title || Movie.name,
-                typeOfContent: TypeOfContent
-            }
-        );
-    }
+  onImgPress(Movie, TypeOfContent) {
+    this.props.navigation.navigate('MovieDetail', {
+      movieId: Movie.id,
+      moviePoster: Movie.poster_path,
+      movieTitle: Movie.title || Movie.name,
+      typeOfContent: TypeOfContent
+    });
+  }
 
     render(){
         return(
