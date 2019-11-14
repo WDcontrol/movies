@@ -125,7 +125,7 @@ class MovieDetailScreen extends React.Component {
       let rminutes = Math.round(minutes);
       return rhours + ' hour(s) and ' + rminutes + ' minute(s)';
     };
-
+    //console.log('detail,', this.state.MovieDetail);
     // console.log("watched", this.props.watched);
     // console.log("favorites", this.props.favorites);
 
@@ -136,12 +136,29 @@ class MovieDetailScreen extends React.Component {
             <View style={styles.imgContainer}>
               <ImgMovie imageUrl={this.state.MovieDetail.poster_path} />
             </View>
-            <View>
-              <Text style={{ fontFamily: 'open-sans-bold', fontSize: 18 }}>
+            <View style={{ width: 250 }}>
+              <Text
+                style={{
+                  fontFamily: 'open-sans-bold',
+                  fontSize: 18,
+                  marginBottom: 5
+                }}>
                 {this.state.MovieDetail.title || this.state.MovieDetail.name}
               </Text>
-              <Text> De todd Phillips</Text>
-              <Text> Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz, </Text>
+
+              {/* <Text> Avec  </Text> */}
+              <View style={styles.detailcontainer}>
+                <Text>
+                  Avec:
+                  {this.state.MovieDetail.credits
+                    ? this.state.MovieDetail.credits.cast
+                        .slice(0, 5)
+                        .map((i) => {
+                          return <Text>{i.name} </Text>;
+                        })
+                    : null}
+                </Text>
+              </View>
               <Text>
                 date de sortie : {this.state.MovieDetail.release_date}
               </Text>
@@ -175,9 +192,16 @@ class MovieDetailScreen extends React.Component {
 const styles = StyleSheet.create({
   imgContainer: {
     width: 90,
-    height: 120,
-    marginTop: 30
+    height: 150,
+    marginTop: 30,
+    marginRight: 15
   },
+  detailcontainer: {
+    marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+
   detailContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -190,7 +214,8 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 12,
-    fontFamily: 'open-sans'
+    fontFamily: 'open-sans',
+    fontSize: 14
   }
 });
 
