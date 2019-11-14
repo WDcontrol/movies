@@ -44,7 +44,7 @@ class MovieFlatlist extends React.Component {
 
               )} />
             :
-            <Text>No data</Text>
+            <Text>Chargement ...</Text>
         )
     }
 }
